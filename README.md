@@ -1,3 +1,9 @@
+# Dust Digital Games Store
+
+# NextJS Readme
+
+Im leaving this section momentarily on the readme to consult later on. We will remove it later on
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
