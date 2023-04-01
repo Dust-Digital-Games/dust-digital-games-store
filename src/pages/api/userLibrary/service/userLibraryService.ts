@@ -7,14 +7,14 @@ import { appendFileSync } from 'fs';
 dotenv.config();
 
 const log: Logger<ILogObj> = new Logger({
-  name: 'CommunicatorService',
+  name: 'userLibraryService',
 });
 
 function logToTransport(logObject: ILogObj) {
   appendFileSync('./logs/logs.log', JSON.stringify(logObject) + '\n');
 }
 
-logToTransport({ name: 'CommunicatorService', type: 'info', msg: 'Test' });
+logToTransport({ name: 'userLibraryService', type: 'info', msg: 'Test' });
 
 export const getAllContractsFromPublicWalletAddress = async (publicWalletAddress: string) => {
   const contractAddress: string = process.env.CONTRACT_ADDRESS;
