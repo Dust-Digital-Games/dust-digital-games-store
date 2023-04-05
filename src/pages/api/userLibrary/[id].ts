@@ -11,7 +11,7 @@ type ErrorResponse = {
   userContracts?: string[];
 };
 
-export default async function handler(
+export default async function getAllContracts(
   req: NextApiRequest,
   res: NextApiResponse<SuccessResponse | ErrorResponse>
 ) {

@@ -4,8 +4,14 @@ import { Contract } from 'web3-eth-contract';
 import dotenv from 'dotenv';
 import { Logger, ILogObj } from 'tslog';
 import { appendFileSync } from 'fs';
+import pinataSDK from '@pinata/sdk';
+
 dotenv.config();
 
+const pinata: pinataSDK = new pinataSDK(
+  process.env.PINATA_API_KEY,
+  process.env.PINATA_SECRET_API_KEY
+);
 const log: Logger<ILogObj> = new Logger({
   name: 'userLibraryService',
 });
@@ -78,7 +84,6 @@ export const getAllContractsFromPublicWalletAddress = async (publicWalletAddress
       type: 'function',
     },
   ];
-
   const web3: Web3 = new Web3(process.env.WEB3_URL);
   const contract: Contract = new web3.eth.Contract(contractABI, contractAddress);
   log.warn('contract', 'Test');
