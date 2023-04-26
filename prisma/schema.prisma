@@ -1,6 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// After making changes in this schema file run `npx prisma generate` to generate the new Prisma Client JS.
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,13 +11,21 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model Game {
-  id        Int      @id @default(autoincrement())
-  contract String
-  contract_abi String
+  id            Int      @id @default(autoincrement())
+  contract      String
   game_name     String
-  description String
-  image     String
+  description   String
+  image         String
   download_link String
+  categoryId    Int
+  category      Category @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id            Int      @id @default(autoincrement())
+  category_name String
+  description   String
+  image         String
+  games         Game[]
 }

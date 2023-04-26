@@ -7,8 +7,8 @@ export default async function uploadGame(req: NextApiRequest, res: NextApiRespon
     const game = await prisma.game.create({
       data: {
         contract: gameData.contractAddress,
-        contract_abi: gameData.contractAbi,
         game_name: gameData.gameName,
+        categoryId: gameData.categoryId,
         description: gameData.description,
         image: gameData.image,
         download_link: gameData.downloadLink,

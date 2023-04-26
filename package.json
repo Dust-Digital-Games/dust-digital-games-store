@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "studio": "prisma studio",
-    "prismaMigrateDev": "npx prisma migrate dev --name init"
+    "prismaDbPush": "npx prisma db push",
+    "prismaGenerate": "npx prisma generate",
+    "prismaMigrateDev": "npx prisma migrate dev --name init && npx prisma migrate deploy"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
