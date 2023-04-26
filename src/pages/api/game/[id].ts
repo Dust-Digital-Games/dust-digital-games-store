@@ -10,8 +10,12 @@ export default async function downloadGame(req: NextApiRequest, res: NextApiResp
         id: gameId,
       },
       select: {
-        download_link: true,
+        contract: true,
         game_name: true,
+        description: true,
+        image: true,
+        category: true,
+        download_link: true,
       },
     });
 
