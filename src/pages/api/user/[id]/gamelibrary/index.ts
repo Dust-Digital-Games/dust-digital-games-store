@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Logger, ILogObj } from 'tslog';
-import TsLog from '../../../../lib/TsLog';
+import TsLog from '../../../../../../lib/TsLog';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
 import { Contract } from 'web3-eth-contract';
