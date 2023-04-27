@@ -14,8 +14,8 @@ export default async function downloadGame(req: NextApiRequest, res: NextApiResp
         game_name: true,
         description: true,
         image: true,
-        category: true,
         download_link: true,
+        categories: true,
       },
     });
 
