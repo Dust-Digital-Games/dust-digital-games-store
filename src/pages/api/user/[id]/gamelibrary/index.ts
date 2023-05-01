@@ -89,19 +89,19 @@ export default async function getAllContracts(
   req: NextApiRequest,
   res: NextApiResponse<SuccessResponse | ErrorResponse>
 ) {
-  if (req.method === 'POST') {
-    const publicAddress: string = req.query.id as string;
-    try {
-      const userContracts: string[] = await getAllContractsFromPublicWalletAddress(publicAddress);
-      log.info(`Retrieved ${userContracts.length} contracts for user ${publicAddress}`);
-      return res.status(200).json({ userContracts });
-    } catch (error: any) {
-      log.error(error);
-      return res
-        .status(500)
-        .json({ error: 'Internal server error, couldnt retrieve the users library' });
-    }
-  } else {
+  if (req.method !== 'POST') {
     return res.status(400).json({ error: 'Bad request' });
+  }
+
+  const publicAddress: string = req.query.id as string;
+  try {
+    const userContracts: string[] = await getAllContractsFromPublicWalletAddress(publicAddress);
+    log.info(`Retrieved ${userContracts.length} contracts for user ${publicAddress}`);
+    return res.status(200).json({ userContracts });
+  } catch (error: any) {
+    log.error(error);
+    return res
+      .status(500)
+      .json({ error: 'Internal server error, couldnt retrieve the users library' });
   }
 }
