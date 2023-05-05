@@ -8,7 +8,6 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       const session = await getSession();
-      console.log('🚀 ~ file: index.tsx:11 ~ fetchData ~ session:', session);
       if (!session) {
         router.push('/auth');
       }
