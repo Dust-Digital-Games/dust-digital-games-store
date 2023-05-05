@@ -8,7 +8,7 @@ export default async function generateNonce(req: NextApiRequest, res: NextApiRes
   const nonce = crypto.randomBytes(32).toString('hex');
 
   // Set the expiry of the nonce to 1 hour
-  const expires = new Date(new Date().getTime() + 1000 * 60 * 60);
+  const expires: Date = new Date(new Date().getTime() + 1000 * 60 * 60);
 
   // Create or update the nonce for the given user
   await prisma.user.upsert({
