@@ -40,6 +40,10 @@ model GameCategory {
   categoryId Int
 }
 
+// From this point on, the schema refers to the user's account and session management.
+// Due to a bug in NextJS, we need to implement some extra tables to 'trick' the system into thinking we use JWT
+// because it doesn't support custom metamask authentication providers yet. 
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
