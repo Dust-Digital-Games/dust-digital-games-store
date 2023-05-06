@@ -20,8 +20,6 @@ export default function Auth() {
   );
 }
 
-// This function requests a nonce then signs it, proving that
-//  the user owns the public address they are using
 async function onSignInWithCrypto() {
   try {
     if (!window.ethereum) {
@@ -29,12 +27,10 @@ async function onSignInWithCrypto() {
       return;
     }
 
-    // Get the wallet provider, the signer and address
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     const publicAddress = await signer.getAddress();
 
-    // Send the public address to generate a nonce associates with our account
     const response = await fetch('/api/auth/crypto/generateNonce', {
       method: 'POST',
       headers: {
@@ -46,18 +42,13 @@ async function onSignInWithCrypto() {
     });
     const responseData = await response.json();
 
-    // Sign the received nonce
     const signedNonce = await signer.signMessage(responseData.nonce);
 
-    // Use NextAuth to sign in with our address and the nonce
     await signIn('crypto', {
       publicAddress,
       signedNonce,
       callbackUrl: '/',
     });
-    if (window.ethereum._state.accounts.length > 0) {
-      console.log('user is signed in');
-    }
   } catch {
     window.alert('Error with signing, please try again.');
   }
