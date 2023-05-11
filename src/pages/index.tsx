@@ -23,5 +23,4 @@ export default function Home() {
   );
 }
 
-
 //La sesion debería estar planteada como un custom hook con useContext
