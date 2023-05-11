@@ -13,17 +13,24 @@ DDG was founded because we wanted to learn new technologies and work as a team. 
 
 # Project Setup
 
-We can setup the project using Docker or manually setting the environment.
+We can setup the project using Docker or manually configuring the environment.
+
+Remember to ask for the `.env` file to the team.
 
 ## Docker Setup
 
 ### Prerequisites
 
-[Docker](https://docs.docker.com/get-docker/)
+- [Docker](https://docs.docker.com/get-docker/)
+- Database client (e.g. [DBeaver](https://dbeaver.io/download/))
 
-1. Run `npm i` to install all dependencies
-2. Run `npx run prismaMigrateDev ` get the initial schema
+<hr>
+
+1. Clone the project
+2. Run `npm i` to install the dependencies
 3. Run `docker-compose up --build` to start the application
+4. Attach a shell into the dust-digital-games-store container
+5. Run `npx run prismaMigrateDev` to get the initial schema
 
 ## Manual Setup
 
@@ -31,3 +38,5 @@ We can setup the project using Docker or manually setting the environment.
 
 - [NodeJS](https://nodejs.org/en/download/) (v16.9.1)
 - [PostgreSQL](https://www.postgresql.org/download/) (v13.4)
+
+<hr>
