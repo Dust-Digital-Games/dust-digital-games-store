@@ -22,3 +22,4 @@ export default function Home() {
     </main>
   );
 }
+//La sesion debería estar planteada como un custom hook con useContext
