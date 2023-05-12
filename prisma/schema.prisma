@@ -39,3 +39,60 @@ model GameCategory {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
 }
+
+// From this point on, the schema refers to the user's account and session management.
+// Due to a bug in NextJS, we need to implement some extra tables to 'trick' the system into thinking we use JWT
+// because it doesn't support custom metamask authentication providers yet. 
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id               String            @id @default(cuid())
+  name             String?
+  email            String?           @unique
+  emailVerified    DateTime?
+  image            String?
+  publicAddress    String?           @unique // Added to enable crypto authentication
+  accounts         Account[]
+  sessions         Session[]
+  cryptoLoginNonce CryptoLoginNonce?
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+
+// Added for crypto authentication
+
+model CryptoLoginNonce {
+  userId  String   @unique
+  nonce   String
+  expires DateTime
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
