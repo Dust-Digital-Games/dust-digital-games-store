@@ -1,13 +1,24 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
 
+/**
+ * @swagger
+ * /api/game/{id}:
+ *   get:
+ *     description: Download a game
+ *     responses:
+ *       200:
+ *         description: Game downloaded
+ *      404:
+ *      description: Game not found
+ */
 export default async function downloadGame(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(400).json({ error: 'Bad request' });
   }
   const gameId: number = Number(req.query.id);
 
-  const response = await prisma.game.findFirst({
+  const response = await prisma.game.findUnique({
     where: {
       id: gameId,
     },
