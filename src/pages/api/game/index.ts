@@ -1,16 +1,62 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
 
-interface CategoryData {
+type Category = {
   id: number;
-}
+};
 
+/**
+ * @swagger
+ * /api/game:
+ *   post:
+ *     description: Upload a game
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               gameName:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               image:
+ *                 type: string
+ *                 format: url
+ *               downloadLink:
+ *                 type: string
+ *               contractAddress:
+ *                 type: string
+ *                 format: ethereum-address
+ *               categories:
+ *                 type: object
+ *                 properties:
+ *                   connect:
+ *                     type: array
+ *                     items:
+ *                       type: object
+ *                       properties:
+ *                         id:
+ *                           type: integer
+ *             required:
+ *               - gameName
+ *               - description
+ *               - image
+ *               - downloadLink
+ *               - contractAddress
+ *               - categories
+ *     responses:
+ *       200:
+ *         description: Game uploaded
+ */
 export default async function uploadGame(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(400).json({ error: 'Bad request' });
   }
+
   const gameData = req.body;
-  const categoriesData: CategoryData[] = gameData.categories.connect;
+
   try {
     const game = await prisma.game.create({
       data: {
@@ -20,10 +66,7 @@ export default async function uploadGame(req: NextApiRequest, res: NextApiRespon
         image: gameData.image,
         download_link: gameData.downloadLink,
         categories: {
-          connect: categoriesData.map(category => ({ id: category.id })),
-        },
-        GameCategory: {
-          connect: categoriesData.map(category => ({ id: category.id })),
+          connect: [...gameData.categories.connect],
         },
       },
       include: { categories: true },

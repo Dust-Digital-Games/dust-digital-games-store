@@ -19,8 +19,7 @@ model Game {
   description   String
   image         String
   download_link String
-  categories    Category[]     @relation("GameCategory")
-  GameCategory  GameCategory[]
+  categories    Category[]
 }
 
 model Category {
@@ -28,16 +27,7 @@ model Category {
   category_name String
   description   String
   image         String?
-  games         Game[]         @relation("GameCategory")
-  GameCategory  GameCategory[]
-}
-
-model GameCategory {
-  id         Int      @id @default(autoincrement())
-  game       Game     @relation(fields: [gameId], references: [id])
-  gameId     Int
-  category   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  games         Game[]
 }
 
 // From this point on, the schema refers to the user's account and session management.
