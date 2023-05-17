@@ -1,9 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
 
-type Category = {
-  id: number;
-};
+type GameCategories = [
+  {
+    id: number;
+  }
+];
 
 /**
  * @swagger
@@ -52,10 +54,11 @@ type Category = {
  */
 export default async function uploadGame(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
-    return res.status(400).json({ error: 'Bad request' });
+    return res.status(405).json({ error: 'Bad request' });
   }
 
   const gameData = req.body;
+  const gameCategories: GameCategories = gameData.categories.connect;
 
   try {
     const game = await prisma.game.create({
@@ -66,7 +69,7 @@ export default async function uploadGame(req: NextApiRequest, res: NextApiRespon
         image: gameData.image,
         download_link: gameData.downloadLink,
         categories: {
-          connect: [...gameData.categories.connect],
+          connect: gameCategories,
         },
       },
       include: { categories: true },

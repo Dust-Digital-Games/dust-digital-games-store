@@ -90,7 +90,7 @@ export default async function getAllContracts(
   res: NextApiResponse<SuccessResponse | ErrorResponse>
 ) {
   if (req.method !== 'POST') {
-    return res.status(400).json({ error: 'Bad request' });
+    return res.status(405).json({ error: 'Bad request' });
   }
 
   const publicAddress: string = req.query.id as string;

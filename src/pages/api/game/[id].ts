@@ -14,7 +14,7 @@ import prisma from '../../../../lib/prisma';
  */
 export default async function downloadGame(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
-    return res.status(400).json({ error: 'Bad request' });
+    return res.status(405).json({ error: 'Bad request' });
   }
   const gameId: number = Number(req.query.id);
 
