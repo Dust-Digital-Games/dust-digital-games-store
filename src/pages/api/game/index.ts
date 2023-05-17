@@ -7,51 +7,6 @@ type GameCategories = [
   }
 ];
 
-/**
- * @swagger
- * /api/game:
- *   post:
- *     description: Upload a game
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               gameName:
- *                 type: string
- *               description:
- *                 type: string
- *               image:
- *                 type: string
- *                 format: url
- *               downloadLink:
- *                 type: string
- *               contractAddress:
- *                 type: string
- *                 format: ethereum-address
- *               categories:
- *                 type: object
- *                 properties:
- *                   connect:
- *                     type: array
- *                     items:
- *                       type: object
- *                       properties:
- *                         id:
- *                           type: integer
- *             required:
- *               - gameName
- *               - description
- *               - image
- *               - downloadLink
- *               - contractAddress
- *               - categories
- *     responses:
- *       200:
- *         description: Game uploaded
- */
 export default async function uploadGame(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Bad request' });
