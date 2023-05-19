@@ -1,17 +1,38 @@
 import { PrismaClient } from '@prisma/client';
 
-let prisma: PrismaClient;
+let prisma: any;
+if (process.env.ENV === 'development' || process.env.ENV === 'testing') { 
+  prisma = new PrismaClient({
+    log: [
+      {
+        emit: 'event',
+        level: 'query',
+      },
+      {
+        emit: 'stdout',
+        level: 'error',
+      },
+      {
+        emit: 'stdout',
+        level: 'info',
+      },
+      {
+        emit: 'stdout',
+        level: 'warn',
+      },
+    ],
+  })
+  
+  prisma.$on('query', (e: any) => {
+    console.log('Query: ' + e.query);
+    console.log('Params: ' + JSON.stringify(e.params));
+    console.log('Duration: ' + e.duration + 'ms');
+  })
 
-if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient();
 } else {
-  let globalWithPrisma = global as typeof globalThis & {
-    prisma: PrismaClient;
-  };
-  if (!globalWithPrisma.prisma) {
-    globalWithPrisma.prisma = new PrismaClient();
-  }
-  prisma = globalWithPrisma.prisma;
+  prisma = new PrismaClient();
 }
+
+
 
 export default prisma;
