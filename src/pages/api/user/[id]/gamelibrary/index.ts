@@ -1,6 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Logger, ILogObj } from 'tslog';
-import TsLog from '../../../../../../lib/TsLog';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
 import { Contract } from 'web3-eth-contract';
@@ -15,8 +13,6 @@ type ErrorResponse = {
   error: string;
   userContracts?: string[];
 };
-
-const log = new TsLog('userLibraryController', new Logger());
 
 export const getAllContractsFromPublicWalletAddress = async (publicWalletAddress: string) => {
   const contractAddress: string = process.env.CONTRACT_ADDRESS;
@@ -96,10 +92,8 @@ export default async function getAllContracts(
   const publicAddress: string = req.query.id as string;
   try {
     const userContracts: string[] = await getAllContractsFromPublicWalletAddress(publicAddress);
-    log.info(`Retrieved ${userContracts.length} contracts for user ${publicAddress}`);
     return res.status(200).json({ userContracts });
   } catch (error: any) {
-    log.error(error);
     return res
       .status(500)
       .json({ error: 'Internal server error, couldnt retrieve the users library' });
