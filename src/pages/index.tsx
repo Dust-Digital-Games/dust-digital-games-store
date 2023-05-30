@@ -1,25 +1,21 @@
-import { getSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import React from "react";
+import HomeCard from "../../components/Home/HomeCard/HomeCard";
+import InfoMain from "../../components/Home/InfoMain/InfoMain";
+import Category from "../../components/Home/Category/Category";
+import AboutUs from "../../components/Home/AboutUs/AboutUs";
+import SelectorCard from "../../components/Home/SelectorCard/SelectorCard";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    async function fetchData() {
-      const session = await getSession();
-      if (!session) {
-        router.push('/auth');
-      }
-    }
-    fetchData();
-  }, [router]);
-
   return (
-    <main>
-      <p>Secure stuff that requires login.</p>
-      <button onClick={() => signOut()}>Log out</button>
-    </main>
+    <>
+      {/* <Navbar /> */}
+      {/* <InfoMain />
+      <HomeCard />
+      <Category />
+      <AboutUs />
+      <SelectorCard /> */}
+      <h1>DDG - Home</h1>
+    </>
   );
 }
-//La sesion debería estar planteada como un custom hook con useContext
