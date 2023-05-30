@@ -1,20 +1,21 @@
 import React from "react";
-import HomeCard from "../../components/Home/Home-Card/HomeCard";
+import HomeCard from "../../components/Home/HomeCard/HomeCard";
 import InfoMain from "../../components/Home/InfoMain/InfoMain";
 import Category from "../../components/Home/Category/Category";
 import AboutUs from "../../components/Home/AboutUs/AboutUs";
-import SelectorCard from "../../components/Home/Selector-Card/SelectorCard";
-import Navbar from "../../components/Home/Navbar/Navbar";
+import SelectorCard from "../../components/Home/SelectorCard/SelectorCard";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <>
+      {/* <Navbar /> */}
       {/* <InfoMain />
       <HomeCard />
       <Category />
       <AboutUs />
       <SelectorCard /> */}
-    </div>
+      <h1>DDG - Home</h1>
+    </>
   );
 }

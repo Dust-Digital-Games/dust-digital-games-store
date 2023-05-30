@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Ul({ container }) {
+export default function MenuItems({ className }) {
   return (
-    <ul className={container}>
+    <ul className={className}>
       <li>Games</li>
       <li>New!</li>
       <li>Categories</li>
