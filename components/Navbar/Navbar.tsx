@@ -1,19 +1,20 @@
 "use client";
 import { useEffect, useState } from "react";
 import React from "react";
-import IconHamburger from "../../svg/icon-hamburger.svg";
+import IconHamburger from "../../assets/header/icon-hamburger.svg";
 import Image from "next/image";
 import MenuItems from "../MenuItems/MenuItems";
 import { onSignInWithCrypto } from "@/pages/auth";
+import IconDustLogoMobile from "../../assets/header/IconDustLogoMobile.png";
 const Navbar: React.FC = () => {
   const [active, setActive] = useState<boolean>(false);
   const handlerMenu = () => {
     setActive(!active);
   };
   return (
-    <header className="relative w-screen flex justify-between px-7 py-12 items-center border-b-slate-900 h-7 border-2 md:justify-around">
-      <span className="text-letras font-medium">Dust Games</span>
-      <nav className=" flex gap-6 items-center  border-b-slate-500 md:gap-12 md:hidden">
+    <header className="relative w-screen flex justify-between px-7 py-12 items-center  md:justify-around">
+      <Image src={IconDustLogoMobile} alt="img-dg" width={130} height={130} />
+      <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         <MenuItems className="hidden md:flex md:gap-3" />
         <button
           className=" rounded-3xl font-bold  border-2 px-5 py-2 text-letras border-letras "
