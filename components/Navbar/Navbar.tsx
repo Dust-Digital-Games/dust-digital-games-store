@@ -6,11 +6,9 @@ import Image from "next/image";
 import MenuItems from "../MenuItems/MenuItems";
 import { onSignInWithCrypto } from "@/pages/auth";
 import IconDustLogoMobile from "../../assets/header/IconDustLogoMobile.png";
+import Hamburger from "hamburger-react";
 const Navbar: React.FC = () => {
   const [active, setActive] = useState<boolean>(false);
-  const handlerMenu = () => {
-    setActive(!active);
-  };
   return (
     <header className="relative w-screen flex justify-between px-7 py-12 items-center  md:justify-around">
       <Image src={IconDustLogoMobile} alt="img-dg" priority />
@@ -22,13 +20,14 @@ const Navbar: React.FC = () => {
         >
           Sign In
         </button>
-        <Image
-          src={IconHamburger}
-          alt="Open menu"
-          onClick={handlerMenu}
-          width={50}
-          className=" block border-2 border-letras rounded-full p-1 text-primaryLetter md:hidden"
-          priority
+        <Hamburger
+          direction="right"
+          color="#2c41ff"
+          duration={0.1}
+          size={32}
+          onToggle={(togle) => {
+            togle ? setActive(!active) : setActive(!active);
+          }}
         />
       </nav>
       <MenuItems className="hidden md:flex md:gap-3" />
