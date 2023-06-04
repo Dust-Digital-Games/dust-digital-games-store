@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 interface Props {
-  platformsIcon: string;
+  platformsIcon?: string;
   image: string;
   targetDiscount?: string;
   targetPrice?: string;
@@ -34,10 +34,12 @@ const Card = ({
   const handlerBuyNow = () => {};
 
   const handlerSeeMore = () => {};
+
+  // El diseño masomenos va por ahí, lo que faltaría sería mapear en el caso como por ejemplo renderizado de las estrellas o plataformas
   return (
     <section className="w-80 flex flex-col gap-2 border-2 border-red-500 rounded-lg mb-8 ">
       <div className="relative w-full h-full ">
-        <Image src={image} alt="imgcard" />
+        <Image src={image} alt="imgcard" width={320} height={300} />
         <div className="absolute left-3 top-3">
           <Image
             src={platformsIcon}
