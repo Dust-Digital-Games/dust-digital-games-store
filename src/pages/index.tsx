@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <>
       <InfoMain />
-      {/* <HomeCard />
+      <HomeCard />
       <Category />
       <AboutUs />
-      <SelectorCard /> */}
+      {/* <SelectorCard /> */}
     </>
   );
 }
