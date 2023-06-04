@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 interface Props {
-  platformsIcon?: string;
+  platformsIcon: string;
   image: string;
   targetDiscount?: string;
   targetPrice?: string;
@@ -39,14 +39,14 @@ const Card = ({
   return (
     <section className="w-80 flex flex-col gap-2 border-2 border-red-500 rounded-lg mb-8 ">
       <div className="relative w-full h-full ">
-        <Image src={image} alt="imgcard" width={320} height={300} />
+        <Image src={image} alt="imgcard" priority />
         <div className="absolute left-3 top-3">
           <Image
             src={platformsIcon}
             alt="imgcard"
             width={30}
             height={30}
-            style={{ color: "white" }}
+            style={{ color: "white", width: "auto", height: "auto" }}
           />
         </div>
         <span className="absolute left-0 bottom-0 text-white ">
