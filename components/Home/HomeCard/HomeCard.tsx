@@ -9,6 +9,7 @@ export default function HomeCard() {
         image={Stray}
         targetDiscount="-20%"
         platforms="Indie"
+        platformsIcon={Stray}
         releaseData="15 Jun 2023"
         name="Stray"
         rating={4.9}
