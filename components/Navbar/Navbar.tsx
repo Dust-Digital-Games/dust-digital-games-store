@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   };
   return (
     <header className="relative w-screen flex justify-between px-7 py-12 items-center  md:justify-around">
-      <Image src={IconDustLogoMobile} alt="img-dg" width={130} height={130} />
+      <Image src={IconDustLogoMobile} alt="img-dg" priority />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         <MenuItems className="hidden md:flex md:gap-3" />
         <button
@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
           onClick={handlerMenu}
           width={50}
           className=" block border-2 border-letras rounded-full p-1 text-primaryLetter md:hidden"
+          priority
         />
       </nav>
       <MenuItems className="hidden md:flex md:gap-3" />
