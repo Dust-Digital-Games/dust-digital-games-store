@@ -35,10 +35,9 @@ export default function AboutUs() {
       <div className="w-[80%] flex flex-col  gap-6">
         <Image
           src={WalletConnect}
-          width={300}
-          height={300}
           alt="img-wallet"
           className="object-cover"
+          priority
         />
         <h2 className="font-bold text-xl">¿It prevents piracy?</h2>
         <p className="font-medium">
