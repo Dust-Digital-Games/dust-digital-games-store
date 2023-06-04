@@ -11,21 +11,11 @@ export default function Footer() {
   return (
     <footer className="w-full pl-[40px] mt-[40px] pr-[20px]">
       <div className="width flex justify-between items-center">
-        <Image src={Icon} width={150} height={150} alt="icon" />
+        <Image src={Icon} alt="icon" priority />
         <div className="flex gap-2">
-          <StaticImage
-            src={Instagram}
-            width={30}
-            height={30}
-            alt="iconInstagram"
-          />
-          <StaticImage src={Twitter} width={30} height={30} alt="iconTwitter" />
-          <StaticImage
-            src={Facebook}
-            width={30}
-            height={30}
-            alt="iconFacebook"
-          />
+          <StaticImage src={Instagram} alt="iconInstagram" />
+          <StaticImage src={Twitter} alt="iconTwitter" />
+          <StaticImage src={Facebook} alt="iconFacebook" />
         </div>
       </div>
       <div className="grid grid-cols-2 mt-7 ">
