@@ -10,12 +10,12 @@ import Hamburger from "hamburger-react";
 const Navbar: React.FC = () => {
   const [active, setActive] = useState<boolean>(false);
   return (
-    <header className="relative w-screen flex justify-between px-7 py-12 items-center  md:justify-around">
+    <header className="relative w-full flex justify-between px-7 py-12 items-center  md:justify-around">
       <Image src={IconDustLogoMobile} alt="img-dg" priority />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         <MenuItems className="hidden md:flex md:gap-3" />
         <button
-          className=" rounded-3xl font-bold  border-2 px-5 py-2 text-letras border-letras "
+          className=" rounded-3xl font-bold  border-2 px-5 py-2 border-letras "
           onClick={onSignInWithCrypto}
         >
           Sign In
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
         />
       </nav>
       <MenuItems className="hidden md:flex md:gap-3" />
-      <button className=" hidden rounded-3xl font-bold  border-2 px-5 py-2 text-letras border-letras md:block">
+      <button className=" hidden rounded-3xl font-bold  border-2 px-5 py-2 md:block">
         Sign In
       </button>
       {active && (
