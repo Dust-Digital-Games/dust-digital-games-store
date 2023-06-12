@@ -5,7 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        letras: "#2C41FF",
+        primaryLetter: "#2C41FF",
+        border: "1px solid red",
+        neutral: "#1A1A1B",
+        textHomecardRD: "rgb(136,136,136)",
+        bgHomecardPlatforms: "#CFD4FF",
       },
     },
   },
