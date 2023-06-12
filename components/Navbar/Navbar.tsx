@@ -31,7 +31,10 @@ const Navbar: React.FC = () => {
         />
       </nav>
       <MenuItems className="hidden md:flex md:gap-3" />
-      <button className=" hidden rounded-3xl font-bold  border-2 px-5 py-2 md:block">
+      <button
+        className=" hidden rounded-3xl font-bold  border-2 px-5 py-2 md:block"
+        onClick={onSignInWithCrypto}
+      >
         Sign In
       </button>
       {active && (

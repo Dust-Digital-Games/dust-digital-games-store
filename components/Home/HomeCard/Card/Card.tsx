@@ -39,8 +39,10 @@ const Card = ({
   return (
     <section className="w-80 flex flex-col gap-2 border-2 border-red-500 rounded-lg mb-8 ">
       <div className="relative w-full h-full ">
-        <Image src={image} alt="imgcard" priority />
-        <div className="absolute left-3 top-3">
+        <div className="w-full h-full">
+          <Image src={image} alt="imgcard" priority />
+        </div>
+        <div className="absolute left-3 top-3 ">
           <Image
             src={platformsIcon}
             alt="imgcard"
@@ -53,33 +55,34 @@ const Card = ({
           {targetDiscount}
         </span>
       </div>
-      <span className=" bg-bgHomecardPlatforms w-max rounded-lg py-2 px-6 text-sm text-primaryLetter text-center font-bold ml-4">
-        {platforms}
-      </span>
-      <span className="px-4 text-textHomecardRD text-lg font-semibold ">{`Release data on ${releaseData}`}</span>
-      <div className="flex gap-4 px-4">
-        <h2 className="text-4xl">
-          {name.charAt(0)}
-          <span className="text-2xl">{name.slice(1)}</span>
-        </h2>
-        <span className="text-lg font-bold">{rating}</span>
-        <span>{star}</span>
-      </div>
-      <p className="px-4 font-medium text-lg">{info}</p>
-      {/* {discount && <span>¡IN DISCOUNT!</span>} */}
-      <div className="flex justify-evenly  mb-5 ">
-        <button
-          className="bg-primaryLetter py-2 px-8 rounded-3xl text-white font-semibold text-xl "
-          onClick={handlerBuyNow}
-        >
-          Buy Now
-        </button>
-        <button
-          className="border-2 border-primaryLetter py-2 px-8 rounded-3xl  font-semibold text-primaryLetter text-xl "
-          onClick={handlerSeeMore}
-        >
-          See More
-        </button>
+      <div>
+        <span className=" bg-bgHomecardPlatforms w-max rounded-lg py-2 px-6 text-sm text-primaryLetter text-center font-bold ml-4">
+          {platforms}
+        </span>
+        <span className="px-4 text-textHomecardRD text-lg font-semibold ">{`Release data on ${releaseData}`}</span>
+        <div className="flex gap-4 px-4">
+          <h2 className="text-4xl">
+            {name.charAt(0)}
+            <span className="text-2xl">{name.slice(1)}</span>
+          </h2>
+          <span className="text-lg font-bold">{rating}</span>
+          <span>{star}</span>
+        </div>
+        <p className="px-4 font-medium text-lg">{info}</p>
+        <div className="flex justify-evenly  mb-5 ">
+          <button
+            className="bg-primaryLetter py-2 px-8 rounded-3xl text-white font-semibold text-xl "
+            onClick={handlerBuyNow}
+          >
+            Buy Now
+          </button>
+          <button
+            className="border-2 border-primaryLetter py-2 px-8 rounded-3xl  font-semibold text-primaryLetter text-xl "
+            onClick={handlerSeeMore}
+          >
+            See More
+          </button>
+        </div>
       </div>
     </section>
   );

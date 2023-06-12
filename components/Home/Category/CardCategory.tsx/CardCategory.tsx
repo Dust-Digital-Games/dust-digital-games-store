@@ -11,9 +11,8 @@ export default function CardCategory({ image, name }: Props) {
       <Image
         src={image}
         alt={image}
-        width={300}
-        height={300}
         className="w-full h-full overflow-hidden "
+        priority
       />
       <h2 className="absolute bottom-5 text-white font-semibolg text-3xl ">
         {name}
