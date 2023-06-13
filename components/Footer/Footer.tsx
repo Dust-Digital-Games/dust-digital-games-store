@@ -4,18 +4,19 @@ import Image from "next/image";
 import Instagram from "../../assets/footer/instagram.png";
 import Twitter from "../../assets/footer/Twitter.png";
 import Facebook from "../../assets/footer/facebook.png";
+import FooterImage from "../../assets/footer/DustGamesFooter.png";
 import Link from "next/link";
 import StaticImage from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full pl-[40px] mt-[40px] pr-[20px]">
-      <div className="width flex justify-between items-center">
+    <footer className="w-full pl-[40px] mt-[40px] pr-[20px] h-full">
+      <div className="w-full flex justify-between items-center">
         <Image src={Icon} alt="icon" priority />
-        <div className="flex gap-2">
-          <StaticImage src={Instagram} alt="iconInstagram" />
-          <StaticImage src={Twitter} alt="iconTwitter" />
-          <StaticImage src={Facebook} alt="iconFacebook" />
+        <div className="flex gap-2 ">
+          <Image src={Instagram} alt="iconInstagram" />
+          <Image src={Twitter} alt="iconTwitter" />
+          <Image src={Facebook} alt="iconFacebook" />
         </div>
       </div>
       <div className="grid grid-cols-2 mt-7 ">
@@ -44,6 +45,9 @@ export default function Footer() {
           <li className="text-[15px] font-medium">About the Company</li>
           <li className="text-[15px] font-medium">Contact Us</li>
         </ul>
+      </div>
+      <div className="w-full h-full mt-20">
+        <Image src={FooterImage} alt="imagen-footer" priority />
       </div>
     </footer>
   );
