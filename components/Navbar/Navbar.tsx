@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Image from "next/image";
-// import MenuItems from "../MenuItems/MenuItems";
+import MenuItems from "../MenuItems/MenuItems";
 import { onSignInWithCrypto } from "@/pages/auth";
 import IconDustLogoMobile from "../../assets/header/IconDustLogoMobile.png";
 import { motion, AnimatePresence } from "framer-motion";
@@ -139,7 +139,6 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
     </header>
   );
 };
