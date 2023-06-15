@@ -5,10 +5,10 @@ import WalletConnect from "../../../assets/WalletConnect.png";
 import Link from "next/link";
 export default function AboutUs() {
   return (
-    <section className="flex flex-col gap-3 justify-center items-center w-full">
-      <div className="w-full flex justify-center items-center flex-col gap-1">
-        <h2 className="text-3xl text-primaryLetter font-bold">About Dust</h2>
-        <h3 className="text-[15px] text-primaryLetter  font-bold ">
+    <section className="flex flex-col gap-3 justify-center items-center w-full mb-8 ">
+      <div className="w-full flex justify-center items-center flex-col gap-1 my-16">
+        <h2 className="text-3xl text-primary font-bold">About Dust</h2>
+        <h3 className="text-[15px] text-primary  font-bold ">
           Frequent Questions
         </h3>
       </div>
@@ -28,7 +28,7 @@ export default function AboutUs() {
           To get started, you just have to Download Metamask!{" "}
         </p>
         {/* Con la propiedad download */}
-        <a className="border-2 border-primaryLetter rounded-[30px] w-max py-3 px-7 text-primaryLetter font-bold ">
+        <a className="border-2 border-primary rounded-[30px] w-max py-3 px-7 text-primary font-bold mb-24 ">
           Download Here
         </a>
       </div>
@@ -50,7 +50,7 @@ export default function AboutUs() {
         </p>
         <Link
           href="#"
-          className="text-primaryLetter font-semibold border-2 border-primaryLetter  py-3 px-7 rounded-[30px] w-max"
+          className="text-primary font-bold border-2 border-primary  py-2 px-8 rounded-[30px] w-max"
         >
           Learn More
         </Link>
