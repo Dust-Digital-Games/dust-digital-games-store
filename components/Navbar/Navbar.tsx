@@ -54,32 +54,32 @@ const Navbar: React.FC = () => {
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         <MenuItems className="hidden md:flex md:gap-3" />
         <button
-          className=" rounded-3xl font-bold  border-2 px-8 bg-[#364AFF] text-white py-2 "
+          className=" rounded-3xl font-bold  border-2 px-8 bg-primary text-white py-2 "
           onClick={onSignInWithCrypto}
         >
           Sign In
         </button>
-        <div className="border border-[#2C41FF] rounded-full ">
+        <div className="border border-primary rounded-full ">
           <Image src={Hamburger} alt="hamburger" onClick={handlerMenu} />
         </div>
       </nav>
       <MenuItems className="hidden md:flex md:gap-3" />
       <div className="flex gap-4">
         <button
-          className=" hidden rounded-3xl font-semibold bg-[#364AFF] text-white border-2 px-5 py-2 md:block"
+          className=" hidden rounded-3xl font-semibold bg-primary text-white border-2 px-5 py-2 md:block"
           onClick={onSignInWithCrypto}
         >
           Sign In
         </button>
         <div
-          className=" hidden md:flex  border border-[#2C41FF] px-4 py-1 rounded-full items-center gap-3"
+          className=" hidden md:flex  border border-primary px-4 py-1 rounded-full items-center gap-3"
           onClick={handlerTheme}
         >
           <span
             className={
               theme
-                ? "text-white order-2 font-semibold "
-                : "text-[#2C41FF] font-semibold"
+                ? "text-white order-2 font-semibold"
+                : "text-primary font-semibold"
             }
           >
             {theme ? "On" : "Off"}
@@ -102,14 +102,14 @@ const Navbar: React.FC = () => {
                 onClick={handlerMenu}
               >
                 <Image src={Arrow} alt="arrow" />
-                <span className="text-[#2C41FF] font-bold">Menú</span>
+                <span className="text-primary font-bold">Menú</span>
               </div>
               {/* Esto sería que si le hago un click me muestre un div o el otro según el modo oscuro o claro */}
               <div
                 className={
                   theme
-                    ? "flex gap-4 border bg-[#2C41FF] rounded-full items-center  py-2 px-5 z-[9999]"
-                    : "flex gap-4 border border-[#2C41FF] rounded-full items-center  py-2 px-5 z-[9999]"
+                    ? "flex gap-4 border bg-primary rounded-full items-center  py-2 px-5 z-[9999]"
+                    : "flex gap-4 border border-primary rounded-full items-center  py-2 px-5 z-[9999]"
                 }
                 onClick={handlerTheme}
               >
@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
                   className={
                     theme
                       ? "text-white font-semibold text-lg order-4"
-                      : "text-[#2C41FF] font-semibold text-lg"
+                      : "text-primary font-semibold text-lg"
                   }
                 >
                   {theme ? "Night" : "Light"}
@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
             </div>
             <div className="w-full flex justify-center items-center gap-2 flex-col my-12">
               <Image src={ProfileImg} alt="profile" />
-              <h2 className="text-[#2C41FF] font-bold ">Francisco Diaz</h2>
+              <h2 className="text-primary font-bold ">Francisco Diaz</h2>
             </div>
             <ul className="flex flex-col gap-6 pl-6">
               <li className="font-semibold">My Profile</li>
