@@ -4,7 +4,7 @@ import IconMetamask from "../../IconMetamask/IconMetamask";
 
 export default function InfoMain() {
   return (
-    <main className="pt-10">
+    <main className="mt-32">
       <div className=" flex flex-col justify-center items-center gap-4 ">
         {/* Podria usar un after para no tener un span dentro del yours */}
         <h1 className="text-3xl text-center font-medium ">
