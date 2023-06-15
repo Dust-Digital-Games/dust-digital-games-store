@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Image from "next/image";
-import MenuItems from "../MenuItems/MenuItems";
+// import MenuItems from "../MenuItems/MenuItems";
 import { onSignInWithCrypto } from "@/pages/auth";
 import IconDustLogoMobile from "../../assets/header/IconDustLogoMobile.png";
 import { motion, AnimatePresence } from "framer-motion";
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
     <header className="fixed w-full flex justify-between px-7 py-12 items-center  md:justify-around bg-white h-24 top-0 left-0 z-50 ">
       <Image src={IconDustLogoMobile} alt="img-dg" priority />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
-        <MenuItems className="hidden md:flex md:gap-3" />
+        {/* <MenuItems className="hidden md:flex md:gap-3" /> */}
         <button
           className=" rounded-3xl font-bold  border-2 px-8 bg-primary text-white py-2 "
           onClick={onSignInWithCrypto}
@@ -63,6 +63,7 @@ const Navbar: React.FC = () => {
           <Image src={Hamburger} alt="hamburger" onClick={handlerMenu} />
         </div>
       </nav>
+
       <MenuItems className="hidden md:flex md:gap-3" />
       <div className="flex gap-4">
         <button
@@ -138,6 +139,7 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
     </header>
   );
 };

@@ -45,4 +45,8 @@ migration.sql
 next-env.d.ts
 
 # logs
-logs
+logs/
+
+# Solidity
+contracts/
+migrations/

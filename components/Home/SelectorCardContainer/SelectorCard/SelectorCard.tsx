@@ -1,8 +1,9 @@
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Image from "next/image";
 import React from "react";
 
 interface Props {
-  image: string | StaticImageData;
+  image: string;
   offert1: string;
   offer2: string;
   name: string;
@@ -10,7 +11,7 @@ interface Props {
   discount: boolean;
 }
 
-export default function Card({
+export default function SelectorCard({
   image,
   offert1,
   offer2,
@@ -21,9 +22,14 @@ export default function Card({
   return (
     <div className="w-[370px] h-[110px] grid grid-cols-5 border border-[#2c41ff] rounded-lg">
       <div className="w-full h-full relative col-span-2">
-        <div className="w-full h-full">
-          <Image src={image} alt="imagen" priority />
-        </div>
+        <Image
+          src={image}
+          alt="imagen"
+          priority
+          width={300}
+          height={300}
+          className="w-full h-auto"
+        />
         <div className="absolute bottom-0 left-0 flex">
           <div className="w-[52.75px]">
             <span className="bg-[#8AC926] px-2 py-1 block rounded-l-lg text-white font-semibold ">
