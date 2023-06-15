@@ -1,18 +1,18 @@
 import React from "react";
-import HomeCard from "../../components/Home/HomeCard/HomeCard";
+import HomeCardContainer from "../../components/Home/HomeCardContainer/HomeCardContainer";
 import InfoMain from "../../components/Home/InfoMain/InfoMain";
 import Category from "../../components/Home/Category/Category";
 import AboutUs from "../../components/Home/AboutUs/AboutUs";
-import SelectorCard from "../../components/Home/SelectorCard/SelectorCard";
+import SelectorCardContainer from "../../components/Home/SelectorCardContainer/SelectorCardContainer";
 
 export default function Home() {
   return (
     <>
       <InfoMain />
-      <HomeCard />
+      <HomeCardContainer />
       <Category />
       <AboutUs />
-      <SelectorCard />
+      <SelectorCardContainer />
     </>
   );
 }

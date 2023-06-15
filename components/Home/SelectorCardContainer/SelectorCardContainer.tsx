@@ -1,10 +1,10 @@
 import React from "react";
 import ButtonSelectorCard from "./ButtonSelectorCard/ButtonSelectorCard";
-import Card from "./Card/Card";
+import SelectorCard from "./SelectorCard/SelectorCard";
 import AOE from "../../../assets/ageofempires.jpg";
 import Link from "next/link";
 import { motion } from "framer-motion";
-export default function SelectorCard() {
+export default function SelectorCardContainer() {
   return (
     <section className="w-full flex justify-center items-center flex-col">
       <div className="flex">
@@ -13,16 +13,16 @@ export default function SelectorCard() {
         <ButtonSelectorCard name="Upcoming" />
       </div>
       <div className="flex gap-[20px] flex-col justify-center items-center border border-[#2C41FF] py-12">
-        <Card
-          image={AOE}
+        <SelectorCard
+          image={AOE.src}
           offert1="-15%"
           offer2="$20  "
           name="Age of Wonders 4"
           platforms="Strategy | 4X | Fantasy"
           discount={true}
         />
-        <Card
-          image={AOE}
+        <SelectorCard
+          image={AOE.src}
           offert1="-15%"
           offer2="$20  "
           name="Age of Wonders 4"

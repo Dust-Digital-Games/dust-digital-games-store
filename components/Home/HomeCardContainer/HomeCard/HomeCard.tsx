@@ -16,7 +16,7 @@ interface Props {
   redirectSeeMore?: string;
 }
 
-const Card = ({
+const HomeCard = ({
   platformsIcon,
   image,
   targetDiscount,
@@ -39,16 +39,19 @@ const Card = ({
   return (
     <section className="w-80 flex flex-col gap-2 border-2 border-red-500 rounded-lg mb-8 ">
       <div className="relative w-full h-full ">
-        <div className="w-full h-full">
-          <Image src={image} alt="imgcard" priority />
-        </div>
+        <Image src={image} alt="imgcard" priority height={300} width={999} />
         <div className="absolute left-3 top-3 ">
           <Image
             src={platformsIcon}
             alt="imgcard"
             width={30}
             height={30}
-            style={{ color: "white", width: "auto", height: "auto" }}
+            style={{
+              color: "white",
+              width: "auto",
+              height: "auto",
+              zIndex: "-100",
+            }}
           />
         </div>
         <span className="absolute left-0 bottom-0 text-white ">
@@ -88,4 +91,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default HomeCard;
