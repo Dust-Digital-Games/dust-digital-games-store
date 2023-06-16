@@ -1,7 +1,5 @@
 import React from "react";
-import Stray from "../../../../assets/stray.jpg";
 import Image from "next/image";
-import Star from "../../../../assets/HomeCardStar.png";
 import Apple from "../../../../assets/HomeCardApple.png";
 
 interface Props {
@@ -48,8 +46,11 @@ export default function HomeCard({
       </div>
       <div className="flex flex-col ml-4 ">
         <div className="flex gap-2 flex-wrap">
-          {platforms.map((p) => (
-            <span className="bg-[#d4daFF] text-primary rounded-full py-1 px-6 w-max text-sm mb-4">
+          {platforms.map((p, index) => (
+            <span
+              key={index}
+              className="bg-[#d4daFF] text-primary rounded-full py-1 px-6 w-max text-sm mb-4"
+            >
               {p}
             </span>
           ))}
@@ -61,8 +62,8 @@ export default function HomeCard({
           <h2 className="text-3xl font-bold">{name}</h2>
           <div className=" flex pt-[7px] h-[30px] gap-1">
             <span className="text-base font-semibold ">{calification}</span>
-            {star.map((s) => (
-              <Image src={s} alt="star" width={20} height={17} />
+            {star.map((s, index) => (
+              <Image key={index} src={s} alt="star" width={20} height={17} />
             ))}
           </div>
         </div>
