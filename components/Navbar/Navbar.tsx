@@ -30,7 +30,9 @@ const Navbar: React.FC = () => {
     exit: { x: -500, transition: { duration: 1 } },
   };
   const [active, setActive] = useState<boolean>(false);
-  const [theme, setTheme] = useState<boolean>(false);
+  const [themeSwitchStatus, setThemeSwitchStatus] = useState<"light" | "dark">(
+    "light"
+  );
   useEffect(() => {
     if (typeof window != "undefined" && window.document) {
       document.body.style.overflow = active ? "hidden" : "unset";
@@ -45,8 +47,8 @@ const Navbar: React.FC = () => {
     setActive((prev) => !prev);
   };
 
-  const handlerTheme = () => {
-    setTheme((prev) => !prev);
+  const themeSwitchHandler = () => {
+    setThemeSwitchStatus((prev) => (prev === "light" ? "dark" : "light"));
   };
   return (
     <header className="fixed w-full flex justify-between px-7 py-12 items-center  md:justify-around bg-white h-24 top-0 left-0 z-50 ">
@@ -74,18 +76,21 @@ const Navbar: React.FC = () => {
         </button>
         <div
           className=" hidden md:flex  border border-primary px-4 py-1 rounded-full items-center gap-3"
-          onClick={handlerTheme}
+          onClick={themeSwitchHandler}
         >
           <span
             className={
-              theme
+              themeSwitchStatus === "dark"
                 ? "text-white order-2 font-semibold"
                 : "text-primary font-semibold"
             }
           >
-            {theme ? "On" : "Off"}
+            {themeSwitchStatus === "dark" ? "On" : "Off"}
           </span>
-          <Image src={theme ? MoonDesktop : SunDesktop} alt="icon" />
+          <Image
+            src={themeSwitchStatus === "dark" ? MoonDesktop : SunDesktop}
+            alt="icon"
+          />
         </div>
       </div>
       <AnimatePresence>
@@ -108,22 +113,25 @@ const Navbar: React.FC = () => {
               {/* Esto sería que si le hago un click me muestre un div o el otro según el modo oscuro o claro */}
               <div
                 className={
-                  theme
+                  themeSwitchStatus === "dark"
                     ? "flex gap-4 border bg-primary rounded-full items-center  py-2 px-5 z-[9999]"
                     : "flex gap-4 border border-primary rounded-full items-center  py-2 px-5 z-[9999]"
                 }
-                onClick={handlerTheme}
+                onClick={themeSwitchHandler}
               >
                 <span
                   className={
-                    theme
+                    themeSwitchStatus === "dark"
                       ? "text-white font-semibold text-lg order-4"
                       : "text-primary font-semibold text-lg"
                   }
                 >
-                  {theme ? "Night" : "Light"}
+                  {themeSwitchStatus === "dark" ? "Night" : "Light"}
                 </span>
-                <Image src={theme ? MoonMobile : SunMobile} alt="sol" />
+                <Image
+                  src={themeSwitchStatus === "dark" ? MoonMobile : SunMobile}
+                  alt="sol"
+                />
               </div>
             </div>
             <div className="w-full flex justify-center items-center gap-2 flex-col my-12">
