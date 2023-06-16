@@ -1,28 +1,36 @@
 import React from "react";
 import GameBox from "../../GameBox/GameBox";
 import IconMetamask from "../../IconMetamask/IconMetamask";
-
+import GameBoxImage from "../../../assets/gamebox.png";
 export default function InfoMain() {
   return (
-    <main className="mt-32">
+    <main className="mt-40">
       <div className=" flex flex-col justify-center items-center gap-4 ">
         {/* Podria usar un after para no tener un span dentro del yours */}
-        <h1 className="text-3xl text-center font-medium ">
+        <h1 className="text-4xl text-center">
           Your digital games <br /> are now{" "}
-          <span className="primaryLetter font-bold text-primaryLetter">
-            yours
-          </span>
+          <span className="primaryLetter font-bold text-primary">yours</span>
         </h1>
-        <p className="text-center mx-4">
+        <p className="text-center mx-9 font-semibold mt-2">
           In Dust Games, every game is an NFT that can be traded in Opensea
           through game collections.
         </p>
       </div>
-      <button className="pt-10 text-primaryLetter font-semibold mx-auto w-full cursor-pointer">
+      <button className="pt-10 text-primary font-bold mx-auto w-full cursor-pointer">
         ¡Click on the title of the game!
       </button>
-      <GameBox />
-      <div className="flex justify-center items-center flex-col">
+      <GameBox
+        image={GameBoxImage.src}
+        name="Titulo del Juego"
+        colors="primary"
+      />
+      <GameBox
+        image={GameBoxImage.src}
+        name="Titulo del Juego"
+        colors="primary"
+      />
+
+      <div className="flex justify-center items-center flex-col my-24">
         <IconMetamask />
         <h2 className="font-semibold">
           Powered with <span className="font-bold text-xl">Metamask</span>
