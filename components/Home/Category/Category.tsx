@@ -15,8 +15,6 @@ export default function Category() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center gap-4">
-      <h2 className="text-2xl font-semibold text-primary my-8">
     // className=" w-full flex flex-col justify-center items-center gap-4"
     <section>
       <h2 className=" block text-center text-2xl font-semibold text-primary mb-4">
