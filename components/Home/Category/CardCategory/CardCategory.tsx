@@ -13,8 +13,8 @@ export default function CardCategory({ image, nombre }: Props) {
         alt={image}
         className="w-full h-full overflow-hidden "
         priority
-        width={170}
-        height={400}
+        width={227}
+        height={280}
       />
       <h2 className="absolute bottom-5 text-white font-semibolg text-3xl ">
         {nombre}
