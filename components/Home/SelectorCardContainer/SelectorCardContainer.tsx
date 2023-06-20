@@ -3,16 +3,29 @@ import ButtonSelectorCard from "./ButtonSelectorCard/ButtonSelectorCard";
 import SelectorCard from "./SelectorCard/SelectorCard";
 import AOE from "../../../assets/ageofempires.jpg";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
 export default function SelectorCardContainer() {
   return (
-    <section className="w-full flex justify-center items-center flex-col">
-      <div className="flex">
-        <ButtonSelectorCard name="In Trend" />
-        <ButtonSelectorCard name="Most Sold" />
-        <ButtonSelectorCard name="Upcoming" />
-      </div>
-      <div className="flex gap-[20px] flex-col justify-center items-center border border-[#2C41FF] py-12">
+    <section className="w-full ml-4 ">
+      <Swiper
+        slidesPerView={2.7}
+        spaceBetween={0}
+        style={{ marginLeft: "16px", zIndex: "3", marginTop: "10px" }}
+      >
+        <SwiperSlide style={{ width: "0px" }}>
+          <ButtonSelectorCard name="In Trend" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ButtonSelectorCard name="Most Sold" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ButtonSelectorCard name="Upcoming" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ButtonSelectorCard name="Offers" />
+        </SwiperSlide>
+      </Swiper>
+      <div className="flex gap-[20px] flex-col justify-center items-center border border-primary py-12 rounded-xl">
         <SelectorCard
           image={AOE.src}
           offert1="-15%"
@@ -35,7 +48,7 @@ export default function SelectorCardContainer() {
       {/* Las letras diferenciando con el diseño de figma parecen no estar alineadas de la misma manera */}
       <Link
         href="#"
-        className="bg-[#364AFF] text-white px-8 py-2 rounded-full font-semibold vertical mt-12 "
+        className="bg-[#364AFF] text-white px-8 py-2 rounded-full font-semibold vertical mt-12 block w-max m-auto "
       >
         See More
       </Link>
