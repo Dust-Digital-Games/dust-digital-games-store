@@ -18,6 +18,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/gameLibrary/[id].js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/api/gameLibrary/[id].js",
+    "components/Home/Category/CardCategory"
+  ],
   "exclude": ["node_modules"]
 }

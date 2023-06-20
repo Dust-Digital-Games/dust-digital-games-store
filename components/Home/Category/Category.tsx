@@ -1,5 +1,5 @@
 import React from "react";
-import CardCategory from "./CardCategory.tsx/CardCategory";
+import CardCategory from "./CardCategory/CardCategory";
 import { CardCategoryData } from "./CardCategoryData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -28,9 +28,12 @@ export default function Category() {
         slidesPerView={1.5}
         spaceBetween={30}
       >
-        {CardCategoryData.map(({ nombre, imagen }) => (
-          <SwiperSlide style={{ display: "flex", justifyContent: "center" }}>
-            <CardCategory nombre={nombre} image={imagen.src} />
+        {CardCategoryData.map(({ nombre, imagen, id }) => (
+          <SwiperSlide
+            style={{ display: "flex", justifyContent: "center" }}
+            key={id}
+          >
+            <CardCategory nombre={nombre} image={imagen.src} key={id} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -30,8 +30,13 @@ export default function HomeCard({
   return (
     <section className="flex flex-col w-[350px] gap-4 border-[2px] border-primary rounded-lg text-base ">
       <div className="relative">
-        <Image src={Apple} alt="img" className="absolute top-3 left-2" />
-        <Image src={image} alt="stray" width={999} height={300} />
+        <Image
+          src={Apple}
+          alt="img"
+          className="absolute top-3 left-2"
+          priority
+        />
+        <Image src={image} alt="stray" width={999} height={300} priority />
         <div className="flex absolute left-0 bottom-0">
           <span className="text-white font-semibold px-3 py-2 bg-[#8AC92680] ">
             {offPrice}
@@ -63,7 +68,15 @@ export default function HomeCard({
           <div className=" flex pt-[7px] h-[30px] gap-1">
             <span className="text-base font-semibold ">{calification}</span>
             {star.map((s, index) => (
-              <Image key={index} src={s} alt="star" width={20} height={17} />
+              <Image
+                key={index}
+                src={s}
+                alt="star"
+                width={20}
+                height={17}
+                priority
+                style={{ width: "auto", height: "auto" }}
+              />
             ))}
           </div>
         </div>
