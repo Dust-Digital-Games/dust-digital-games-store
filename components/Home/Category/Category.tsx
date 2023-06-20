@@ -26,7 +26,7 @@ export default function Category() {
         className="mySwiper"
         freeMode={true}
         slidesPerView={1.5}
-        spaceBetween={30}
+        spaceBetween={48}
       >
         {CardCategoryData.map(({ nombre, imagen, id }) => (
           <SwiperSlide
