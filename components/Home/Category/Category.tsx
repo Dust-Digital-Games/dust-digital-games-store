@@ -25,6 +25,8 @@ export default function Category() {
         modules={[Pagination, FreeMode]}
         className="mySwiper"
         freeMode={true}
+        slidesPerView={1.5}
+        spaceBetween={30}
       >
         {CardCategoryData.map(({ nombre, imagen }) => (
           <SwiperSlide style={{ display: "flex", justifyContent: "center" }}>
