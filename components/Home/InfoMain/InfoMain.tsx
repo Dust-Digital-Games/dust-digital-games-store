@@ -9,8 +9,6 @@ export default function InfoMain() {
     isLocalStorageAvailable && localStorage.getItem("darkMode") === "true"
   );
 
-  console.log(themeSwitchStatus);
-
   return (
     <main className="pt-40 dark:bg-bgDarkMode ">
       <div className=" flex flex-col justify-center items-center gap-4  dark:bg-bgDarkMode">

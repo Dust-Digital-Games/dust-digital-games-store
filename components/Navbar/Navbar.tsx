@@ -33,12 +33,12 @@ const Navbar: React.FC = () => {
     exit: { x: -500, transition: { duration: 1 } },
   };
   const [active, setActive] = useState<boolean>(false);
+  // TODO: IMPLEMENTAR HOOK PARA MANEJO DE LOCALSTORAGE
   // isLocalStorageAvailable está puesta por que no me reconoce el localstore, me tiraba undefined
   const isLocalStorageAvailable = typeof localStorage !== "undefined";
   const [themeSwitchStatus, setThemeSwitchStatus] = useState(
     isLocalStorageAvailable && localStorage.getItem("darkMode") === "true"
   );
-  console.log(themeSwitchStatus);
   useEffect(() => {
     if (typeof window != "undefined" && window.document) {
       document.body.style.overflow = active ? "hidden" : "unset";
