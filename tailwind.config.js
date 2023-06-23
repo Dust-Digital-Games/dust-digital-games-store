@@ -10,6 +10,7 @@ module.exports = {
         neutral: "#1A1A1B",
         textHomecardRD: "rgb(136,136,136)",
         bgHomecardPlatforms: "#CFD4FF",
+        bgDarkMode: "#0F0326",
       },
     },
   },

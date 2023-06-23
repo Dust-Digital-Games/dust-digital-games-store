@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../assets/header/IconDustLogoMobile.png";
+import IconLightMode from "../../assets/header/IconDustLogoMobile-LightMode.png";
 import Image from "next/image";
 import Instagram from "../../assets/footer/instagram.png";
 import Twitter from "../../assets/footer/Twitter.png";
@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="w-full pl-[20px] mt-[40px] pr-[20px] h-full relative ">
       <div className="w-full flex justify-between items-center">
-        <Image src={Icon} alt="icon" priority />
+        <Image src={IconLightMode} alt="icon" priority />
         <div className="flex gap-2 ">
           <Image src={Instagram} alt="iconInstagram" width={30} height={25} />
           <Image src={Twitter} alt="iconTwitter" width={30} height={25} />
