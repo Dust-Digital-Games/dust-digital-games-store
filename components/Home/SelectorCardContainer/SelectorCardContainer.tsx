@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 export default function SelectorCardContainer() {
   return (
-    <section className="w-full ml-4 ">
+    <section className="w-full">
       <Swiper
         slidesPerView={2.7}
         spaceBetween={0}
