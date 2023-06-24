@@ -16,8 +16,19 @@ import ArrowLightMode from "../../assets/header/profile-arrow-lightmode.png";
 import ArrowDarkMode from "../../assets/header/profile-arrow-darkmode.png";
 import HamburgerLightMode from "../../assets/header/hamburger-menu-LightMode.png";
 import HamburgerDarkMode from "../../assets/header/hamburger-menu-DarkMode.png";
+import { useTheme } from "next-themes"
 
 const Navbar: React.FC = () => {
+
+  const {theme, setTheme} = useTheme();
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  
+  }, [])
+  
+
   const MenuAnimated = {
     initial: {
       opacity: 0,
@@ -33,12 +44,6 @@ const Navbar: React.FC = () => {
     exit: { x: -500, transition: { duration: 1 } },
   };
   const [active, setActive] = useState<boolean>(false);
-  // TODO: IMPLEMENTAR HOOK PARA MANEJO DE LOCALSTORAGE
-  // isLocalStorageAvailable está puesta por que no me reconoce el localstore, me tiraba undefined
-  const isLocalStorageAvailable = typeof localStorage !== "undefined";
-  const [themeSwitchStatus, setThemeSwitchStatus] = useState(
-    isLocalStorageAvailable && localStorage.getItem("darkMode") === "true"
-  );
   useEffect(() => {
     if (typeof window != "undefined" && window.document) {
       document.body.style.overflow = active ? "hidden" : "unset";
@@ -50,29 +55,21 @@ const Navbar: React.FC = () => {
     };
   }, [active]);
 
-  useEffect(() => {
-    if (themeSwitchStatus === true) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("darkMode", JSON.stringify(themeSwitchStatus));
-  }, [themeSwitchStatus]);
-
   const handlerMenu = () => {
     setActive((prev) => !prev);
   };
 
   const themeSwitchHandler = () => {
-    setThemeSwitchStatus(!themeSwitchStatus);
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   };
+
+  if (!mounted) {
+    return null
+  }
   return (
+  
     <header className="fixed w-full flex justify-between px-7 py-12 items-center  md:justify-around bg-white h-24 top-0 left-0 z-50 dark:bg-bgDarkMode">
-      {themeSwitchStatus === true ? (
-        <Image src={IconDustLogoMobileDarkMode} alt="img-dg" priority />
-      ) : (
-        <Image src={IconDustLogoMobileLightMode} alt="img-dg" priority />
-      )}
+      <Image src={theme === 'dark' ? IconDustLogoMobileDarkMode : IconDustLogoMobileLightMode} alt="img-dg" priority />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         {/* <MenuItems className="hidden md:flex md:gap-3" /> */}
         <button
@@ -82,19 +79,11 @@ const Navbar: React.FC = () => {
           Sign In
         </button>
         <div className="border border-primary rounded-full ">
-          {themeSwitchStatus === true ? (
-            <Image
-              src={HamburgerDarkMode}
-              alt="hamburger"
-              onClick={handlerMenu}
-            />
-          ) : (
-            <Image
-              src={HamburgerLightMode}
-              alt="hamburger"
-              onClick={handlerMenu}
-            />
-          )}
+          <Image
+            src={theme === 'dark' ? HamburgerDarkMode : HamburgerLightMode}
+            alt="hamburger"
+            onClick={handlerMenu}
+          />
         </div>
       </nav>
 
@@ -111,11 +100,7 @@ const Navbar: React.FC = () => {
           onClick={themeSwitchHandler}
         >
           <span>On</span>
-          {themeSwitchStatus === true ? (
-            <Image src={MoonDesktop} alt="moon" />
-          ) : (
-            <Image src={SunDesktop} alt="sun" />
-          )}
+            <Image src={theme === 'dark' ? MoonDesktop : SunDesktop} alt="moon" />
         </div>
       </div>
       <AnimatePresence>
@@ -132,7 +117,7 @@ const Navbar: React.FC = () => {
                 className="flex gap-2 justify-center items-center"
                 onClick={handlerMenu}
               >
-                {themeSwitchStatus === true ? (
+                {theme === 'dark' ? (
                   <Image src={ArrowDarkMode} alt="arrow" />
                 ) : (
                   <Image src={ArrowLightMode} alt="arrow" />
@@ -144,7 +129,7 @@ const Navbar: React.FC = () => {
               {/* Esto sería que si le hago un click me muestre un div o el otro según el modo oscuro o claro */}
               <div
                 className={
-                  themeSwitchStatus === true
+                  theme === 'dark'
                     ? "flex gap-4 border bg-primary rounded-full items-center  py-2 px-5 z-[9999]"
                     : "flex gap-4 border border-primary rounded-full items-center  py-2 px-5 z-[9999]"
                 }
@@ -152,15 +137,15 @@ const Navbar: React.FC = () => {
               >
                 <span
                   className={
-                    themeSwitchStatus === true
+                    theme === 'dark'
                       ? "text-white font-semibold text-lg order-4"
                       : "text-primary font-semibold text-lg"
                   }
                 >
-                  {themeSwitchStatus === true ? "Night" : "Light"}
+                  {theme === 'dark' ? "Night" : "Light"}
                 </span>
                 <Image
-                  src={themeSwitchStatus === true ? MoonMobile : SunMobile}
+                  src={theme === 'dark' ? MoonMobile : SunMobile}
                   alt="sol"
                 />
               </div>
