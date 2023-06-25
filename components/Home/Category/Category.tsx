@@ -16,23 +16,21 @@ export default function Category() {
 
   return (
     // className=" w-full flex flex-col justify-center items-center gap-4"
-    <section>
-      <h2 className=" block text-center text-2xl font-semibold text-primary mb-4">
+    <section className="py-16 dark:bg-bgDarkMode ">
+      <h2 className=" block text-center text-2xl font-semibold text-primary pb-8 dark:text-white">
         Find by Category
       </h2>
       <Swiper
         pagination={pagination}
         modules={[Pagination, FreeMode]}
-        className="mySwiper"
+        className="mySwiper carousel"
         freeMode={true}
+        centeredSlides={true}
+        spaceBetween={30}
         slidesPerView={1.5}
-        spaceBetween={48}
       >
         {CardCategoryData.map(({ nombre, imagen, id }) => (
-          <SwiperSlide
-            style={{ display: "flex", justifyContent: "center" }}
-            key={id}
-          >
+          <SwiperSlide key={id}>
             <CardCategory nombre={nombre} image={imagen.src} key={id} />
           </SwiperSlide>
         ))}

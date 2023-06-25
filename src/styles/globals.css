@@ -17,6 +17,10 @@ html {
   justify-content: center;
 }
 
+.carousel {
+  width: 100%;
+}
+
 /* Esto es para alinear los botones */
 .swiper-pagination,
 .swiper-pagination-clickable,
