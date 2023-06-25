@@ -14,7 +14,6 @@ module.exports = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        mersad: ["Mersad", "sans-serif"],
       },
     },
   },
