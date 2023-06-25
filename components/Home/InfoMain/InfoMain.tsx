@@ -36,7 +36,7 @@ export default function InfoMain() {
         colors="primary"
       />
 
-      <div className="flex justify-center items-center flex-col my-24">
+      <div className="flex justify-center items-center flex-col py-24">
         <IconMetamask />
         <h2 className="font-semibold dark:text-white">
           Powered with{" "}

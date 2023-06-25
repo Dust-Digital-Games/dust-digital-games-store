@@ -54,7 +54,7 @@ export default function HomeCard({
           {platforms.map((p, index) => (
             <span
               key={index}
-              className="bg-[#d4daFF] text-primary rounded-full py-1 px-6 w-max text-sm mb-4"
+              className="bg-[#d4daFF] text-primary rounded-full py-1 px-6 w-max text-sm mb-4 dark:bg-[#1D2193] dark:text-white"
             >
               {p}
             </span>
@@ -83,7 +83,7 @@ export default function HomeCard({
         <p className="w-[75%] text-sm mb-3 ">{info}</p>
       </div>
       <div className="w-full flex gap-8 mb-4 justify-center ">
-        <div className="flex flex-col items-center justify-center border ">
+        <div className="flex flex-col items-center justify-center">
           <span className="text-[#67951e]  mb-2 text-sm font-bold text-center ">
             ¡IN DISCOUNT!
           </span>
