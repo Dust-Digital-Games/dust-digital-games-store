@@ -1,29 +1,32 @@
 import React from "react";
 import ButtonSelectorCard from "./ButtonSelectorCard/ButtonSelectorCard";
+import { ButtonSelectorCardData } from "./ButtonSelectorCardData";
 import SelectorCard from "./SelectorCard/SelectorCard";
 import AOE from "../../../assets/ageofempires.jpg";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 export default function SelectorCardContainer() {
   return (
-    <section className="w-full">
+    <section className="w-full dark:bg-bgDarkMode">
       <Swiper
         slidesPerView={2.7}
         spaceBetween={0}
-        style={{ marginLeft: "16px", zIndex: "3", marginTop: "10px" }}
+        style={{
+          marginLeft: "16px",
+          zIndex: "5",
+          marginTop: "10px",
+          position: "relative",
+          top: "5px",
+        }}
+        className="dark:bg-bgDarkMode"
+        resistance={true}
+        resistanceRatio={0.3}
       >
-        <SwiperSlide style={{ width: "0px" }}>
-          <ButtonSelectorCard name="In Trend" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ButtonSelectorCard name="Most Sold" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ButtonSelectorCard name="Upcoming" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ButtonSelectorCard name="Offers" />
-        </SwiperSlide>
+        {ButtonSelectorCardData.map((b, key) => (
+          <SwiperSlide key={key}>
+            <ButtonSelectorCard name={b.name} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="flex gap-[20px] flex-col justify-center items-center border border-primary py-12 rounded-xl">
         <SelectorCard
