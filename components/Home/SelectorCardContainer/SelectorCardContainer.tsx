@@ -14,7 +14,7 @@ export default function SelectorCardContainer() {
         style={{
           marginLeft: "16px",
           zIndex: "5",
-          marginTop: "10px",
+          paddingTop: "10px",
           position: "relative",
           top: "5px",
         }}

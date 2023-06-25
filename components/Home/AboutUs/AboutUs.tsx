@@ -14,7 +14,7 @@ export default function AboutUs() {
         <h2 className="text-3xl text-primary font-bold dark:text-white">
           About Dust
         </h2>
-        <h3 className="text-[15px] text-primary  font-semibold dark:text-white ">
+        <h3 className="text-[15px] text-primary  font-semibold dark:text-white font-inter ">
           Frequent Questions
         </h3>
       </div>
@@ -28,16 +28,16 @@ export default function AboutUs() {
         <h2 className="font-bold text-xl dark:text-white ">
           ¿What does NFT videogame mean?
         </h2>
-        <p className="font-semibold dark:text-white">
+        <p className="font-semibold dark:text-white font-inter ">
           It means it cannot be replaced and represents something unique in
           value, and that's what an NFT is! It allows you to trade your digital
           videogame
-          <span className="font-bold ml-1 dark:text-white ">
+          <span className="font-bold ml-1 dark:text-white font-inter ">
             in Opensea through game collections, ensuring ownership rights for
             gamers.
           </span>
         </p>
-        <p className="font-semibold dark:text-white">
+        <p className="font-semibold dark:text-white font-inter">
           To get started, you just have to Download Metamask!{" "}
         </p>
         {/* Con la propiedad download */}
@@ -57,9 +57,9 @@ export default function AboutUs() {
         <h2 className="font-semibold text-xl dark:text-white ">
           ¿It prevents piracy?
         </h2>
-        <p className="font-medium dark:text-white ">
+        <p className="font-medium dark:text-white font-inter ">
           ¡Yes! After downloading a purchased game,
-          <span className="font-bold ml-1 dark:text-white">
+          <span className="font-bold ml-1 dark:text-white font-inter ">
             you will need to scan a QR code with your Metamask wallet
           </span>
           to only validate if you have the game. Without owning the NFT, the

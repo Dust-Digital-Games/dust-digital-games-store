@@ -12,6 +12,10 @@ module.exports = {
         bgHomecardPlatforms: "#CFD4FF",
         bgDarkMode: "#0F0326",
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        mersad: ["Mersad", "sans-serif"],
+      },
     },
   },
   variants: {

@@ -48,16 +48,16 @@ export default function Footer() {
             Games
           </h2>
           <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter  ">
               Upload my game
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white  font-inter ">
               How to buy a game
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               What's New!
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               Categories
             </li>
           </ul>
@@ -67,16 +67,16 @@ export default function Footer() {
             About
           </h2>
           <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               Metamask
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               Creating Account
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               Token & Contracts
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white font-inter ">
               Opensea collection
             </li>
           </ul>
@@ -85,10 +85,10 @@ export default function Footer() {
       <div className="flex flex-col gap-2 mt-10">
         <h2 className="text-xl text-primary font-bold dark:text-white">Dust</h2>
         <ul className="flex flex-col gap-2">
-          <li className="text-[15px] font-medium dark:text-white ">
+          <li className="text-[15px] font-medium dark:text-white font-inter ">
             About the Company
           </li>
-          <li className="text-[15px] font-medium dark:text-white ">
+          <li className="text-[15px] font-medium dark:text-white font-inter ">
             Contact Us
           </li>
         </ul>
