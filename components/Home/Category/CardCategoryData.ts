@@ -1,4 +1,4 @@
-import Stray from "../../../assets/stray.jpg";
+import Stray from "../../../assets/card-carousel.jpg";
 
 export const CardCategoryData = [
   {
