@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonSelectorCard from "./ButtonSelectorCard/ButtonSelectorCard";
 import { ButtonSelectorCardData } from "./ButtonSelectorCardData";
 import SelectorCard from "./SelectorCard/SelectorCard";
 import AOE from "../../../assets/ageofempires.jpg";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTheme } from "next-themes";
 export default function SelectorCardContainer() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null;
+  }
   return (
-    <section className="w-full dark:bg-bgDarkMode">
+    <section className="w-full bg-white dark:bg-bgDarkMode">
       <Swiper
         slidesPerView={2.7}
         spaceBetween={0}
@@ -17,9 +27,12 @@ export default function SelectorCardContainer() {
           position: "relative",
           zIndex: "5",
           top: "15px",
-          background: "white",
         }}
-        className="dark:bg-bgDarkMode"
+        className={
+          theme === "dark"
+            ? "bgDarkMode border border-none outline-none "
+            : "white"
+        }
         resistance={true}
         resistanceRatio={0.3}
       >

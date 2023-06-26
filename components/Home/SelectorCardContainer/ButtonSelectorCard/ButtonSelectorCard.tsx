@@ -15,9 +15,9 @@ export default function ButtonSelectorCard({ name }: Props) {
     exit: { opacity: 0 },
   };
   return (
-    <>
+    <div className="flex flex-col gap-2 dark:bg-bgDarkMode bg-white  border border-none outline-0">
       <button
-        className="w-[137px] text-primary font-bold h-[40px] flex justify-center items-center border-[1px] border-[#2C41FF] rounded-sm  focus:bg-primary focus:text-white dark:text-white dark:border-white"
+        className="w-[137px] dark:bg-bgDarkMode dark:text-white dark:border-white text-primary font-bold h-[40px] flex justify-center items-center border-[1px] border-[#2C41FF] rounded-sm  focus:bg-primary focus:text-white "
         onFocus={handlerFocus}
         onBlur={handlerFocus}
       >
@@ -29,8 +29,8 @@ export default function ButtonSelectorCard({ name }: Props) {
           active
             ? "opacity-100 transition-opacity  ease-in-out duration-500 "
             : " opacity-0 "
-        }w-[137px] h-[2px] dark:bg-white mt-2 bg-[#1622B7]  `}
+        }w-[137px] h-[2px] dark:bg-white bg-[#1622B7]  `}
       />
-    </>
+    </div>
   );
 }

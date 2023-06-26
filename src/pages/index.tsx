@@ -8,7 +8,7 @@ import SelectorCardContainer from "../../components/Home/SelectorCardContainer/S
 export default function Home() {
   return (
     <>
-      {/* <InfoMain /> */}
+      <InfoMain />
       <HomeCardContainer />
       <Category />
       <AboutUs />
