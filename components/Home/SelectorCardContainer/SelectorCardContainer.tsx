@@ -13,10 +13,11 @@ export default function SelectorCardContainer() {
         spaceBetween={0}
         style={{
           marginLeft: "16px",
-          zIndex: "5",
           marginTop: "10px",
           position: "relative",
-          top: "5px",
+          zIndex: "5",
+          top: "15px",
+          background: "white",
         }}
         className="dark:bg-bgDarkMode"
         resistance={true}
@@ -28,7 +29,7 @@ export default function SelectorCardContainer() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex gap-[20px] flex-col justify-center items-center border border-primary py-12 rounded-xl">
+      <div className=" flex gap-[20px] flex-col justify-center items-center border border-primary py-12 rounded-xl bg-white dark:bg-bgDarkMode">
         <SelectorCard
           image={AOE.src}
           offert1="-15%"
