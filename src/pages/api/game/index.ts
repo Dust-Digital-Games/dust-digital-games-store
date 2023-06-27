@@ -2,15 +2,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
 import { Game } from '@prisma/client';
 
+
 type GameCategories = [
   {
     id: number;
   }
 ];
 
+const GAMES_PER_PAGE = 5;
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    await getAllGames(res);
+    await getAllGames(res, req);
 
   } else if (req.method === 'POST') {
     await uploadNewGame(req, res);
@@ -20,10 +23,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 
-async function getAllGames(res: NextApiResponse) {
+async function getAllGames(res: NextApiResponse, req: NextApiRequest) {
+
+  const page = Number(req.query.page) || 1;
+
   try {
-    const games: Game[] = await prisma.game.findMany();
-    return res.status(200).json(games);
+    const games: Game[] = await prisma.game.findMany({
+      skip: (page - 1) * GAMES_PER_PAGE,
+      take: GAMES_PER_PAGE,
+    });
+
+    const paginatedGames = {
+      page: page,
+      games: games,
+    }
+    return res.status(200).json(paginatedGames);
   } catch (error) {
     return res.status(500).json({ error: 'Internal Server Error' });
   }
