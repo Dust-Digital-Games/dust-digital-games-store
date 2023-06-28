@@ -17,7 +17,7 @@ export default function SelectorCardContainer() {
     return null;
   }
   return (
-    <section className="w-full bg-white dark:bg-bgDarkMode">
+    <section className="w-full bg-white dark:bg-bgDarkMode selectorcard-boxshadow">
       <Swiper
         slidesPerView={2.7}
         spaceBetween={0}
@@ -42,7 +42,7 @@ export default function SelectorCardContainer() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className=" flex gap-[20px] flex-col justify-center items-center border border-primary py-12 rounded-xl bg-white dark:bg-bgDarkMode">
+      <div className=" flex gap-[20px] flex-col justify-center items-center border-b-0 border-t-[1px] border-primary pt-12 rounded-xl bg-white dark:bg-bgDarkMode">
         <SelectorCard
           image={AOE.src}
           offert1="-15%"
@@ -60,15 +60,14 @@ export default function SelectorCardContainer() {
           discount={true}
         />
       </div>
-
-      {/* No uso una etiqueta <a> por que no voy a llevar a pagina externa, tampoco un boton por que se supone que voy a redireccionar en la misma página*/}
-      {/* Las letras diferenciando con el diseño de figma parecen no estar alineadas de la misma manera */}
-      <Link
-        href="#"
-        className="bg-[#364AFF] text-white px-8 py-2 rounded-full font-semibold vertical mt-12 block w-max m-auto "
-      >
-        See More
-      </Link>
+      <div className="py-8 ">
+        <Link
+          href="#"
+          className="bg-[#364AFF]  text-white px-8 py-2  rounded-full font-semibold vertical  block w-max m-auto "
+        >
+          See More
+        </Link>
+      </div>
     </section>
   );
 }

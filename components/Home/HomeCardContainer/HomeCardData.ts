@@ -1,7 +1,5 @@
 import Stray from "../../../assets/stray.jpg";
 import Star from "../../../assets/HomeCardStar.png";
-import Apple from "../../../assets/HomeCardApple.png";
-import Image from "next/image";
 export const HomeCardData = {
   image: Stray.src,
   offPrice: "-20%",
