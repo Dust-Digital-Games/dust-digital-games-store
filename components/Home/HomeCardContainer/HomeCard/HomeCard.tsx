@@ -28,7 +28,7 @@ export default function HomeCard({
   info,
 }: Props) {
   return (
-    <section className="flex flex-col w-[350px] gap-4 border-[2px] border-primary rounded-lg text-base ">
+    <section className="flex flex-col w-[350px] gap-4 border-[2px] border-primary rounded-lg text-base homecard-boxshadow ">
       <div className="relative">
         <Image
           src={Apple}
@@ -92,7 +92,7 @@ export default function HomeCard({
           </button>
         </div>
         <div className="flex flex-col justify-end">
-          <button className="border-[2px] border-primary  font-bold rounded-full text-primary py-[10px] px-7">
+          <button className="border-[2px] border-primary  font-bold rounded-full text-primary py-[10px] px-7 dark:text-white dark:border-white">
             See More
           </button>
         </div>

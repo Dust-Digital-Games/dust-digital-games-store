@@ -16,16 +16,10 @@ import ArrowLightMode from "../../assets/header/profile-arrow-lightmode.png";
 import ArrowDarkMode from "../../assets/header/profile-arrow-darkmode.png";
 import HamburgerLightMode from "../../assets/header/hamburger-menu-LightMode.png";
 import HamburgerDarkMode from "../../assets/header/hamburger-menu-DarkMode.png";
-import { useTheme } from "next-themes";
 
+import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
 const Navbar: React.FC = () => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  const [theme, setTheme] = useThemeSwitcher();
   const MenuAnimated = {
     initial: {
       opacity: 0,
@@ -60,9 +54,6 @@ const Navbar: React.FC = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  if (!mounted) {
-    return null;
-  }
   return (
     <header className="fixed w-full flex justify-between px-7 py-12 items-center  md:justify-around bg-white h-24 top-0 left-0 z-50 dark:bg-bgDarkMode">
       <Image

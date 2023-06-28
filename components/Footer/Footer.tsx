@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import IconLightMode from "../../assets/header/IconDustLogoMobile-LightMode.png";
 import IconDarkMode from "../../assets/header/IconDustLogoMobile-DarkMode.png";
 import Image from "next/image";
@@ -10,9 +10,9 @@ import TwitterDarkMode from "../../assets/footer/TwitterDarkMode.png";
 import FacebookDarkMode from "../../assets/footer/facebookDarkMode.png";
 import FooterImage from "../../assets/footer/DustGamesFooter.png";
 import FooterImgLeft from "../../assets/footer/Footer-img-left.png";
-import { useTheme } from "next-themes";
+import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
 export default function Footer() {
-  const { theme } = useTheme();
+  const [theme] = useThemeSwitcher();
   return (
     <footer className="w-full pl-[20px] pt-[40px] pr-[20px] h-full relative dark:bg-bgDarkMode">
       <div className="w-full flex justify-between items-center">
@@ -26,19 +26,22 @@ export default function Footer() {
             src={theme === "dark" ? InstagramDarkMode : InstagramLightMode}
             alt="iconInstagram"
             width={30}
-            height={25}
+            style={{ height: "auto" }}
+            priority
           />
           <Image
             src={theme === "dark" ? TwitterDarkMode : TwitterLightMode}
             alt="iconTwitter"
             width={30}
-            height={25}
+            style={{ height: "auto" }}
+            priority
           />
           <Image
             src={theme === "dark" ? FacebookDarkMode : FacebookLightMode}
             alt="iconFacebook"
             width={30}
-            height={25}
+            style={{ height: "auto" }}
+            priority
           />
         </div>
       </div>
@@ -94,11 +97,12 @@ export default function Footer() {
         </ul>
       </div>
       <Image
-        src={FooterImgLeft.src}
+        src={FooterImgLeft}
         alt="img"
         width={50}
-        height={50}
+        style={{ height: "auto" }}
         className="absolute top-16 right-0"
+        priority
       />
       <div className="w-full h-full mt-20 flex justify-center items-center">
         <Image src={FooterImage} alt="imagen-footer" priority />

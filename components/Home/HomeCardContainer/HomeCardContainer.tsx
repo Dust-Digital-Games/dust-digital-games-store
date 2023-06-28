@@ -1,6 +1,5 @@
 import React from "react";
 import HomeCard from "./HomeCard/HomeCard";
-import Stray from "../../../assets/stray.jpg";
 import { HomeCardData } from "./HomeCardData";
 export default function HomeCardContainer() {
   const {
