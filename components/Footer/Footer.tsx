@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import IconLightMode from "../../assets/header/IconDustLogoMobile-LightMode.png";
 import IconDarkMode from "../../assets/header/IconDustLogoMobile-DarkMode.png";
 import Image from "next/image";
@@ -13,6 +13,14 @@ import FooterImgLeft from "../../assets/footer/Footer-img-left.png";
 import { useTheme } from "next-themes";
 export default function Footer() {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return null;
+  }
   return (
     <footer className="w-full pl-[20px] pt-[40px] pr-[20px] h-full relative dark:bg-bgDarkMode">
       <div className="w-full flex justify-between items-center">
