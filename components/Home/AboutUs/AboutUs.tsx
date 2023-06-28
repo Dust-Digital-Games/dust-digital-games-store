@@ -1,21 +1,12 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import AboutDustLightMode from "../../../assets/AboutDust-LightMode.png";
 import AboutDustDarkMode from "../../../assets/AboutDust-DarkMode.png";
 import WalletConnectLightMode from "../../../assets/WalletConnect-LightMode.png";
 import WalletConnectDarkMode from "../../../assets/WalletConnect-DarkMode.png";
 import Link from "next/link";
-import { useTheme } from "next-themes";
+import { useThemeSwitcher } from "../../../hooks/UseThemeSwitcher";
 export default function AboutUs() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null;
-  }
+  const [theme] = useThemeSwitcher();
   return (
     <section className="flex flex-col gap-3 justify-center items-center w-full py-20 dark:bg-bgDarkMode ">
       <div className="w-full flex justify-center items-center flex-col gap-1">

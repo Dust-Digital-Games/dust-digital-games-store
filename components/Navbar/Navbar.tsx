@@ -16,18 +16,9 @@ import ArrowLightMode from "../../assets/header/profile-arrow-lightmode.png";
 import ArrowDarkMode from "../../assets/header/profile-arrow-darkmode.png";
 import HamburgerLightMode from "../../assets/header/hamburger-menu-LightMode.png";
 import HamburgerDarkMode from "../../assets/header/hamburger-menu-DarkMode.png";
-import { useTheme } from "next-themes"
-
+import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
 const Navbar: React.FC = () => {
-
-  const {theme, setTheme} = useTheme();
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  
-  }, [])
-  
+  const [theme, setTheme] = useThemeSwitcher();
 
   const MenuAnimated = {
     initial: {
@@ -60,16 +51,20 @@ const Navbar: React.FC = () => {
   };
 
   const themeSwitchHandler = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  if (!mounted) {
-    return null
-  }
   return (
-  
     <header className="fixed w-full flex justify-between px-7 py-12 items-center  md:justify-around bg-white h-24 top-0 left-0 z-50 dark:bg-bgDarkMode">
-      <Image src={theme === 'dark' ? IconDustLogoMobileDarkMode : IconDustLogoMobileLightMode} alt="img-dg" priority />
+      <Image
+        src={
+          theme === "dark"
+            ? IconDustLogoMobileDarkMode
+            : IconDustLogoMobileLightMode
+        }
+        alt="img-dg"
+        priority
+      />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         {/* <MenuItems className="hidden md:flex md:gap-3" /> */}
         <button
@@ -80,7 +75,7 @@ const Navbar: React.FC = () => {
         </button>
         <div className="border border-primary rounded-full ">
           <Image
-            src={theme === 'dark' ? HamburgerDarkMode : HamburgerLightMode}
+            src={theme === "dark" ? HamburgerDarkMode : HamburgerLightMode}
             alt="hamburger"
             onClick={handlerMenu}
           />
@@ -100,7 +95,7 @@ const Navbar: React.FC = () => {
           onClick={themeSwitchHandler}
         >
           <span>On</span>
-            <Image src={theme === 'dark' ? MoonDesktop : SunDesktop} alt="moon" />
+          <Image src={theme === "dark" ? MoonDesktop : SunDesktop} alt="moon" />
         </div>
       </div>
       <AnimatePresence>
@@ -117,7 +112,7 @@ const Navbar: React.FC = () => {
                 className="flex gap-2 justify-center items-center"
                 onClick={handlerMenu}
               >
-                {theme === 'dark' ? (
+                {theme === "dark" ? (
                   <Image src={ArrowDarkMode} alt="arrow" />
                 ) : (
                   <Image src={ArrowLightMode} alt="arrow" />
@@ -129,7 +124,7 @@ const Navbar: React.FC = () => {
               {/* Esto sería que si le hago un click me muestre un div o el otro según el modo oscuro o claro */}
               <div
                 className={
-                  theme === 'dark'
+                  theme === "dark"
                     ? "flex gap-4 border bg-primary rounded-full items-center  py-2 px-5 z-[9999]"
                     : "flex gap-4 border border-primary rounded-full items-center  py-2 px-5 z-[9999]"
                 }
@@ -137,15 +132,15 @@ const Navbar: React.FC = () => {
               >
                 <span
                   className={
-                    theme === 'dark'
+                    theme === "dark"
                       ? "text-white font-semibold text-lg order-4"
                       : "text-primary font-semibold text-lg"
                   }
                 >
-                  {theme === 'dark' ? "Night" : "Light"}
+                  {theme === "dark" ? "Night" : "Light"}
                 </span>
                 <Image
-                  src={theme === 'dark' ? MoonMobile : SunMobile}
+                  src={theme === "dark" ? MoonMobile : SunMobile}
                   alt="sol"
                 />
               </div>
