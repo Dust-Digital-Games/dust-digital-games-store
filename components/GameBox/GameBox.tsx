@@ -16,7 +16,7 @@ export default function GameBox({ name, image, colors }: Props) {
         <Image src={image} alt="image" height={200} width={200} />
         <div className="absolute w-1 h-[80px] top-0 right-2 bg-[#8D99FF]" />
       </div>
-      <h2 className="text-[#8c8c8c] text-2xl border-b-2  mb-4 border-[#8c8c8c] ">
+      <h2 className="text-[#8c8c8c] text-2xl border-b-2  mb-4 border-[#8c8c8c] font-inter ">
         {name}
       </h2>
       <div className={`absolute top-0 right-2 w-2 h-full bg-${colors}`} />

@@ -47,11 +47,11 @@ export default function SelectorCard({
         <h2 className="text-sm font-bold pl-3 text-black dark:text-white">
           {name}
         </h2>
-        <p className="text-sm pl-2 font-medium text-black dark:text-white ">
+        <p className="text-sm pl-2 font-medium text-black dark:text-white font-inter">
           {platforms}
         </p>
         {discount && (
-          <span className="text-sm pl-3 text-[#67951E] font-bold ">
+          <span className="text-sm pl-3 text-[#67951E] font-bold font-inter">
             ¡IN DISCOUNT!
           </span>
         )}
