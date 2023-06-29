@@ -23,7 +23,7 @@ export default function SelectorCardContainer() {
         spaceBetween={0}
         style={{
           marginLeft: "16px",
-          marginTop: "10px",
+          paddingTop: "10px",
           position: "relative",
           zIndex: "5",
           top: "15px",

@@ -50,17 +50,17 @@ export default function Footer() {
           <h2 className="text-xl text-primary font-bold dark:text-white">
             Games
           </h2>
-          <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white font-inter  ">
+          <ul className="flex flex-col gap-2 font-inter ">
+            <li className="text-[15px] font-medium dark:text-white ">
               Upload my game
             </li>
-            <li className="text-[15px] font-medium dark:text-white  font-inter ">
+            <li className="text-[15px] font-medium dark:text-white ">
               How to buy a game
             </li>
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+            <li className="text-[15px] font-medium dark:text-white ">
               What's New!
             </li>
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+            <li className="text-[15px] font-medium dark:text-white ">
               Categories
             </li>
           </ul>
@@ -69,17 +69,17 @@ export default function Footer() {
           <h2 className="text-xl text-primary font-bold dark:text-white">
             About
           </h2>
-          <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+          <ul className="flex flex-col gap-2 font-inter ">
+            <li className="text-[15px] font-medium dark:text-white">
               Metamask
             </li>
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+            <li className="text-[15px] font-medium dark:text-white">
               Creating Account
             </li>
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+            <li className="text-[15px] font-medium dark:text-white">
               Token & Contracts
             </li>
-            <li className="text-[15px] font-medium dark:text-white font-inter ">
+            <li className="text-[15px] font-medium dark:text-white">
               Opensea collection
             </li>
           </ul>
@@ -87,11 +87,11 @@ export default function Footer() {
       </div>
       <div className="flex flex-col gap-2 mt-10">
         <h2 className="text-xl text-primary font-bold dark:text-white">Dust</h2>
-        <ul className="flex flex-col gap-2">
-          <li className="text-[15px] font-medium dark:text-white font-inter ">
+        <ul className="flex flex-col gap-2 font-inter">
+          <li className="text-[15px] font-medium dark:text-white">
             About the Company
           </li>
-          <li className="text-[15px] font-medium dark:text-white font-inter ">
+          <li className="text-[15px] font-medium dark:text-white">
             Contact Us
           </li>
         </ul>
