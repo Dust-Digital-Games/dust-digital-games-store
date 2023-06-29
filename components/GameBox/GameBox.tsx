@@ -10,12 +10,14 @@ interface Props {
 
 export default function GameBox({ name, image, colors }: Props) {
   return (
-    // Div dentro de div para no poner un componente adentro de un div en InfoMain y ensuciar su codigo
     <div className="flex w-[90%] gap-4 items-center mt-6 border border-[#8c8c8c] relative rounded-lg m-auto dark:bg-black">
-      <div className=" h-[80px] relative w-[30%]">
-        <Image src={image} alt="image" height={200} width={200} />
-        <div className="absolute w-1 h-[80px] top-0 right-2 bg-[#8D99FF]" />
-      </div>
+      <Image
+        src={image}
+        alt="image"
+        height={100}
+        width={120}
+        className="md:w-[150px]"
+      />
       <h2 className="text-[#8c8c8c] text-2xl border-b-2  mb-4 border-[#8c8c8c] ">
         {name}
       </h2>

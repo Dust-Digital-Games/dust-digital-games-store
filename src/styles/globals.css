@@ -49,8 +49,8 @@ html {
 .swiper-pagination-bullet-active {
   display: none;
 }
-@media (min-width: 768px) {
-  /* Esto es para alinear los botones */
+/* @media (min-width: 768px) {
+  Esto es para alinear los botones
   .swiper-pagination-bullet {
     display: block;
     border: 1px solid #2c41ff;
@@ -60,8 +60,15 @@ html {
     font-size: none;
   }
   .swiper-pagination-bullet-active {
-    /* Estilos de los botones al estar activos */
+    Estilos de los botones al estar activos
     display: block;
     background-color: #2c41ff;
+  }
+} */
+
+@media (min-width: 600px) {
+  .carousel {
+    width: 90%;
+    padding: 0px 5%;
   }
 }

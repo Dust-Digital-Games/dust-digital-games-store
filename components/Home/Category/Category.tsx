@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper";
-
+import { sliderSettings } from "./sliderSettings";
 export default function Category() {
   const pagination = {
     clickable: true,
@@ -21,13 +21,12 @@ export default function Category() {
         Find by Category
       </h2>
       <Swiper
+        {...sliderSettings}
         pagination={pagination}
         modules={[Pagination, FreeMode]}
         className="mySwiper carousel"
         freeMode={true}
-        centeredSlides={true}
         spaceBetween={30}
-        slidesPerView={1.5}
       >
         {CardCategoryData.map(({ nombre, imagen, id }) => (
           <SwiperSlide key={id}>
