@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 interface Props {
   name: string;
 }
-import { AnimatePresence, motion } from "framer-motion";
 export default function ButtonSelectorCard({ name }: Props) {
-  const [active, setActive] = React.useState(false);
+  const [active, setActive] = useState(false);
   const handlerFocus = () => {
     setActive((prev) => !prev);
-  };
-
-  const AnimacionEffect = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
   };
   return (
     <div className="flex flex-col gap-2 dark:bg-bgDarkMode bg-white  border border-none outline-0">

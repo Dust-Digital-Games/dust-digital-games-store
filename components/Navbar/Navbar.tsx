@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
           className=" hidden md:flex  border border-primary px-4 py-1 rounded-full items-center gap-3"
           onClick={themeSwitchHandler}
         >
-          <span>On</span>
+          <span>{theme === "dark" ? "Night" : "Light"}</span>
           <Image src={theme === "dark" ? MoonDesktop : SunDesktop} alt="moon" />
         </div>
       </div>
