@@ -8,15 +8,6 @@ import { useThemeSwitcher } from "../../../hooks/UseThemeSwitcher";
 export default function AboutUs() {
   const [theme] = useThemeSwitcher();
   return (
-    <section className="flex flex-col gap-3 justify-center items-center w-full py-20 dark:bg-bgDarkMode ">
-      <div className="w-full flex justify-center items-center flex-col gap-1">
-        <h2 className="text-3xl text-primary font-bold dark:text-white">
-          About Dust
-        </h2>
-        <h3 className="text-[15px] text-primary  font-semibold dark:text-white font-inter ">
-          Frequent Questions
-        </h3>
-      </div>
     <section className=" flex flex-col gap-3 w-full py-20 bg-white dark:bg-bgDarkMode ">
       <h2 className="text-3xl text-primary font-bold dark:text-white mx-auto">
         About Dust

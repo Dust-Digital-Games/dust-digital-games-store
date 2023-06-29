@@ -88,17 +88,19 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="flex flex-col gap-2 mt-10">
-        <h2 className="text-xl text-primary font-bold dark:text-white">Dust</h2>
-        <ul className="flex flex-col gap-2 font-inter">
-          <li className="text-[15px] font-medium dark:text-white">
-            About the Company
-          </li>
-          <li className="text-[15px] font-medium dark:text-white">
-            Contact Us
-          </li>
-        </ul>
+        <div className="flex flex-col gap-2 mt-10 md:mt-0">
+          <h2 className="text-xl text-primary font-bold dark:text-white">
+            Dust
+          </h2>
+          <ul className="flex flex-col gap-2 font-inter">
+            <li className="text-[15px] font-medium dark:text-white">
+              About the Company
+            </li>
+            <li className="text-[15px] font-medium dark:text-white">
+              Contact Us
+            </li>
+          </ul>
+        </div>
       </div>
       <Image
         src={FooterImgLeft}
