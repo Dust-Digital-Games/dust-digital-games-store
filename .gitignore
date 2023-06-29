@@ -37,9 +37,16 @@ yarn-error.log*
 # vercel
 .vercel
 
+migration_lock.toml
+migration.sql
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 # logs
-logs
+logs/
+
+# Solidity
+contracts/
+migrations/

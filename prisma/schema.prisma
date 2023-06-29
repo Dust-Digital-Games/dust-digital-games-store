@@ -1,7 +1,14 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+// Learn more about this Prisma Schema file in the docs: https://pris.ly/d/prisma-schema
 // After making changes in this schema file run `npx prisma generate` to generate the new Prisma Client JS.
+
+// https://github.com/prisma/prisma/issues/4246
+// As of July 2023, Prisma does not let the user decide 
+// if we want to skip the SELECT statement after an INSERT.
+// This behavior is common in ORM's but theres always a way to customize it.
+// The issue is being worked on but its important to note
+// just in case we ran into optimization issues in the future.
+
+// Also cant multiline comments ☠️
 
 generator client {
   provider = "prisma-client-js"
@@ -13,17 +20,17 @@ datasource db {
 }
 
 model Game {
-  id            Int            @id @default(autoincrement())
-  contract      String
-  game_name     String
-  description   String
-  image         String
-  download_link String
-  categories    Category[]
+  id              Int    @id @default(autoincrement())
+  contractAddress String
+  game_name       String
+  description     String
+  image           String
+  download_link   String
+  categories Category[]
 }
 
 model Category {
-  id            Int            @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   category_name String
   description   String
   image         String?
@@ -47,7 +54,8 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@unique([provider, providerAccountId])
 }
 
@@ -75,6 +83,7 @@ model VerificationToken {
   identifier String
   token      String   @unique
   expires    DateTime
+
   @@unique([identifier, token])
 }
 

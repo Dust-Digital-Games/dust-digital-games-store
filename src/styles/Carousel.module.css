@@ -1,0 +1,12 @@
+.swiper-pagination-bullet {
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  border: 1px solid blue;
+}
+
+.prueba {
+  color: blue;
+}
