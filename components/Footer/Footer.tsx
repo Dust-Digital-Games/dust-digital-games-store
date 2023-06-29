@@ -54,7 +54,7 @@ export default function Footer() {
           <h2 className="text-xl text-primary font-bold dark:text-white">
             Games
           </h2>
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-2 font-inter ">
             <li className="text-[15px] font-medium dark:text-white ">
               Upload my game
             </li>
@@ -73,36 +73,33 @@ export default function Footer() {
           <h2 className="text-xl text-primary font-bold dark:text-white">
             About
           </h2>
-          <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white ">
+          <ul className="flex flex-col gap-2 font-inter ">
+            <li className="text-[15px] font-medium dark:text-white">
               Metamask
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white">
               Creating Account
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white">
               Token & Contracts
             </li>
-            <li className="text-[15px] font-medium dark:text-white ">
+            <li className="text-[15px] font-medium dark:text-white">
               Opensea collection
             </li>
           </ul>
         </div>
-        <div>
-          <h2 className="text-xl text-primary font-bold dark:text-white">
-            Dust
-          </h2>
-          <ul className="flex flex-col gap-2">
-            <li className="text-[15px] font-medium dark:text-white ">
-              About the Company
-            </li>
-            <li className="text-[15px] font-medium dark:text-white ">
-              Contact Us
-            </li>
-          </ul>
-        </div>
       </div>
-
+      <div className="flex flex-col gap-2 mt-10">
+        <h2 className="text-xl text-primary font-bold dark:text-white">Dust</h2>
+        <ul className="flex flex-col gap-2 font-inter">
+          <li className="text-[15px] font-medium dark:text-white">
+            About the Company
+          </li>
+          <li className="text-[15px] font-medium dark:text-white">
+            Contact Us
+          </li>
+        </ul>
+      </div>
       <Image
         src={FooterImgLeft}
         alt="img"

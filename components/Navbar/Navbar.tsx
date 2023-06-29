@@ -16,10 +16,10 @@ import ArrowLightMode from "../../assets/header/profile-arrow-lightmode.png";
 import ArrowDarkMode from "../../assets/header/profile-arrow-darkmode.png";
 import HamburgerLightMode from "../../assets/header/hamburger-menu-LightMode.png";
 import HamburgerDarkMode from "../../assets/header/hamburger-menu-DarkMode.png";
+
 import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
 const Navbar: React.FC = () => {
   const [theme, setTheme] = useThemeSwitcher();
-
   const MenuAnimated = {
     initial: {
       opacity: 0,
@@ -147,7 +147,7 @@ const Navbar: React.FC = () => {
             </div>
             <div className="w-full flex justify-center items-center gap-2 flex-col my-12">
               <Image src={ProfileImg} alt="profile" />
-              <h2 className="text-primary font-bold dark:text-white ">
+              <h2 className="text-primary font-bold dark:text-white font-inter ">
                 Francisco Diaz
               </h2>
             </div>
