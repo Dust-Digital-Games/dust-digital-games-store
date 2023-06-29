@@ -28,7 +28,7 @@ export default function HomeCard({
   info,
 }: Props) {
   return (
-    <section className="flex flex-col w-[350px] gap-4 border-[2px] border-primary rounded-lg text-base homecard-boxshadow ">
+    <section className="flex flex-col w-[350px] gap-4 border-[2px] border-primary rounded-lg text-base homecard-boxshadow bg-white dark:bg-bgDarkMode ">
       <div className="relative">
         <Image
           src={Apple}

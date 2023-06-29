@@ -14,12 +14,13 @@ import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
 export default function Footer() {
   const [theme] = useThemeSwitcher();
   return (
-    <footer className="w-full pl-[20px] pt-[40px] pr-[20px] h-full relative dark:bg-bgDarkMode">
+    <footer className="w-full pl-5 pt-[40px] pr-[20px] h-full relative dark:bg-bgDarkMode md:px-10">
       <div className="w-full flex justify-between items-center">
         <Image
           src={theme === "dark" ? IconDarkMode : IconLightMode}
           alt="icon"
           priority
+          className="md:w-[180px]"
         />
         <div className="flex gap-2 ">
           <Image
@@ -28,13 +29,7 @@ export default function Footer() {
             width={30}
             style={{ height: "auto" }}
             priority
-          />
-          <Image
-            src={theme === "dark" ? TwitterDarkMode : TwitterLightMode}
-            alt="iconTwitter"
-            width={30}
-            style={{ height: "auto" }}
-            priority
+            className="md:w-[35px]"
           />
           <Image
             src={theme === "dark" ? FacebookDarkMode : FacebookLightMode}
@@ -42,10 +37,19 @@ export default function Footer() {
             width={30}
             style={{ height: "auto" }}
             priority
+            className="md:w-[35px]"
+          />
+          <Image
+            src={theme === "dark" ? TwitterDarkMode : TwitterLightMode}
+            alt="iconTwitter"
+            width={30}
+            style={{ height: "auto" }}
+            priority
+            className="md:w-[35px]"
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-7 ">
+      <div className="grid grid-cols-2 mt-7 md:grid-cols-3 justify-self-start items-start">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl text-primary font-bold dark:text-white">
             Games
@@ -84,17 +88,19 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="flex flex-col gap-2 mt-10">
-        <h2 className="text-xl text-primary font-bold dark:text-white">Dust</h2>
-        <ul className="flex flex-col gap-2 font-inter">
-          <li className="text-[15px] font-medium dark:text-white">
-            About the Company
-          </li>
-          <li className="text-[15px] font-medium dark:text-white">
-            Contact Us
-          </li>
-        </ul>
+        <div className="flex flex-col gap-2 mt-10 md:mt-0">
+          <h2 className="text-xl text-primary font-bold dark:text-white">
+            Dust
+          </h2>
+          <ul className="flex flex-col gap-2 font-inter">
+            <li className="text-[15px] font-medium dark:text-white">
+              About the Company
+            </li>
+            <li className="text-[15px] font-medium dark:text-white">
+              Contact Us
+            </li>
+          </ul>
+        </div>
       </div>
       <Image
         src={FooterImgLeft}
@@ -104,8 +110,14 @@ export default function Footer() {
         className="absolute top-16 right-0"
         priority
       />
-      <div className="w-full h-full mt-20 flex justify-center items-center">
+      <div className="w-full h-full mt-20 flex justify-center items-center gap-8">
         <Image src={FooterImage} alt="imagen-footer" priority />
+        <Image
+          src={FooterImage}
+          alt="imagen-footer"
+          priority
+          className="hidden md:block"
+        />
       </div>
     </footer>
   );
