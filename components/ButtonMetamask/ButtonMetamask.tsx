@@ -59,7 +59,13 @@ const handleConnect = async () => {
     method: "eth_requestAccounts",                 
   })                                               
   updateWallet(accounts)     
-
+  await fetch("/api/auth/crypto/generateNonce", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(wallet.accounts[0]),
+  });
 }   
   return (
     <div>
