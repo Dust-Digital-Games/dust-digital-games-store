@@ -18,6 +18,7 @@ import HamburgerLightMode from "../../assets/header/hamburger-menu-LightMode.png
 import HamburgerDarkMode from "../../assets/header/hamburger-menu-DarkMode.png";
 
 import { useThemeSwitcher } from "../../hooks/UseThemeSwitcher";
+import ButtonMetamask from "../ButtonMetamask/ButtonMetamask";
 const Navbar: React.FC = () => {
   const [theme, setTheme] = useThemeSwitcher();
   const MenuAnimated = {
@@ -67,12 +68,9 @@ const Navbar: React.FC = () => {
       />
       <nav className=" flex gap-6 items-center  md:gap-12 md:hidden">
         {/* <MenuItems className="hidden md:flex md:gap-3" /> */}
-        <button
-          className=" rounded-3xl font-bold  border-2 px-8 bg-primary text-white py-2 border-none"
-          onClick={onSignInWithCrypto}
-        >
-          Sign In
-        </button>
+        <div className="block md:hidden" >
+        <ButtonMetamask className="rounded-3xl font-bold  border-2 px-8 bg-primary text-white py-2 border-none" />
+        </div>
         <div className="border border-primary rounded-full ">
           <Image
             src={theme === "dark" ? HamburgerDarkMode : HamburgerLightMode}
@@ -84,12 +82,9 @@ const Navbar: React.FC = () => {
 
       <MenuItems className="hidden md:flex md:gap-3" />
       <div className="flex gap-4">
-        <button
-          className=" hidden rounded-3xl font-semibold bg-primary text-white border-2 px-5 py-2 md:block"
-          onClick={onSignInWithCrypto}
-        >
-          Sign In
-        </button>
+      <div className="hidden md:block" >
+      <ButtonMetamask className="rounded-3xl font-semibold bg-primary text-white border-2 px-5 py-2 " />
+      </div>
         <div
           className=" hidden md:flex  border border-primary px-4 py-1 rounded-full items-center gap-3"
           onClick={themeSwitchHandler}
