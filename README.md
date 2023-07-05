@@ -30,7 +30,7 @@ Remember to ask for the `.env` file to the team.
 2. Run `npm i` to install the dependencies
 3. Run `docker-compose up --build` to start the application
 4. Attach a shell into the dust-digital-games-store container
-5. Run `npx run prismaMigrateDev` to get the initial schema
+5. Run `npm run prismaMigrateDev` to get the initial schema
 
 ## Manual Setup
 
