@@ -64,13 +64,17 @@ const handleConnect = async () => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(wallet.accounts[0]),
+    body: JSON.stringify({ publicAddress: accounts[0] }),
   });
 }   
   return (
     <div>
-      {/* Si account es undefined, signifique no tiene ninguna wallet y mostramos para que se conecte a metamask */}
-      {/* el p dice wallet pero si quiero mostrar sus datos de accounts, balance y chainId refrescanso la pagina, me lo muestra */}
+      {/* 
+        Si account es undefined, significa que no tiene ninguna wallet y
+        mostramos el boton para que se conecte a metamask.
+        El p dice 'wallet' pero si quiero mostrar sus datos de 
+        accounts, balance y chainId refrescando la pagina, me lo muestra 
+      */}
       {hasProvider && wallet.accounts[0] === undefined || wallet.accounts.length < 0 ? <button className={className} onClick={handleConnect} >Connect Metamask</button> : <p>wallet</p>}
     </div>
   )
