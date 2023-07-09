@@ -3,6 +3,7 @@ import prisma from '../../../../lib/prisma';
 import { Game } from '@prisma/client';
 import { Logger, ILogObj } from "tslog";
 const log: Logger<ILogObj> = new Logger();
+const GAMES_PER_PAGE = 5;
 
 type GameCategories = [
   {
@@ -10,7 +11,15 @@ type GameCategories = [
   }
 ];
 
-const GAMES_PER_PAGE = 5;
+type PaginatedGames = {
+  page: number;
+  games: Game[];
+}
+
+type ErrorResponse  = {
+  error: string;
+}
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
@@ -24,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 
-async function getAllGames(res: NextApiResponse, req: NextApiRequest) {
+async function getAllGames(res: NextApiResponse<PaginatedGames | ErrorResponse>, req: NextApiRequest) {
 
   const page = Number(req.query.page) || 1;
 
@@ -36,7 +45,7 @@ async function getAllGames(res: NextApiResponse, req: NextApiRequest) {
       take: GAMES_PER_PAGE,
     });
 
-    const paginatedGames = {
+    const paginatedGames: PaginatedGames = {
       page: page,
       games: games,
     }
