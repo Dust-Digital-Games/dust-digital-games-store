@@ -1,8 +1,8 @@
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, SetStateAction } from "react";
 
 export const useThemeSwitcher = () => {
-  const [mode, setMode] = useState<SetStateAction>("");
+  const [mode, setMode] = useState<SetStateAction<string | undefined>>("");
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
