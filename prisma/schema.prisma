@@ -1,15 +1,6 @@
 // Learn more about this Prisma Schema file in the docs: https://pris.ly/d/prisma-schema
 // After making changes in this schema file run `npx prisma generate` to generate the new Prisma Client JS.
 
-// https://github.com/prisma/prisma/issues/4246
-// As of July 2023, Prisma does not let the user decide 
-// if we want to skip the SELECT statement after an INSERT.
-// This behavior is common in ORM's but theres always a way to customize it.
-// The issue is being worked on but its important to note
-// just in case we ran into optimization issues in the future.
-
-// Also cant multiline comments ☠️
-
 generator client {
   provider = "prisma-client-js"
 }
