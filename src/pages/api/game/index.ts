@@ -59,7 +59,7 @@ async function getAllGames(res: NextApiResponse<PaginatedGames | ErrorResponse>,
 async function uploadNewGame(req: NextApiRequest, res: NextApiResponse) {
   const gameData = req.body;
   const gameCategories: GameCategories = gameData.categories.connect;
-
+  
   try {
     const game = await prisma.game.create({
       data: {
@@ -68,6 +68,7 @@ async function uploadNewGame(req: NextApiRequest, res: NextApiResponse) {
         description: gameData.description,
         image: gameData.image,
         download_link: gameData.downloadLink,
+        rating: gameData.rating,
         categories: {
           connect: gameCategories,
         },

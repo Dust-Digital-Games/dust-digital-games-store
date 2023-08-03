@@ -12,15 +12,18 @@ export default async function downloadGame(req: NextApiRequest, res: NextApiResp
       id: gameId,
     },
     select: {
-      contract: true,
+      contractAddress: true,
       game_name: true,
       description: true,
+      rating: true,
       image: true,
       download_link: true,
       categories: true,
     },
   });
-
+  
+  console.log(typeof response.rating);
+  
   if (response === null) {
     return res.status(404).json({ error: 'Game not found' });
   }

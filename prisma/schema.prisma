@@ -26,6 +26,7 @@ model Game {
   description     String
   image           String
   download_link   String
+  rating          Decimal? @db.Decimal(2,1)
   categories Category[]
 }
 
