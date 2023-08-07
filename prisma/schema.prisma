@@ -12,12 +12,12 @@ datasource db {
 
 model Game {
   id              Int    @id @default(autoincrement())
-  contractAddress String
+  contract_address String
   game_name       String
   description     String
   image           String
   download_link   String
-  rating          Decimal? @db.Decimal(2,1)
+  rating          Decimal @db.Decimal(2,1) @default(0)
   categories Category[]
 }
 
