@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
-import { Game } from '@prisma/client';
-import { Logger, ILogObj } from "tslog";
+import { Game, Prisma } from '@prisma/client';
+import { Logger, ILogObj } from 'tslog';
 const log: Logger<ILogObj> = new Logger();
+const GAMES_PER_PAGE = 5;
 
 type GameCategories = [
   {
@@ -10,25 +11,32 @@ type GameCategories = [
   }
 ];
 
-const GAMES_PER_PAGE = 5;
+type PaginatedGames = {
+  page: number;
+  games: Game[];
+};
+
+type ErrorResponse = {
+  error: string;
+};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     await getAllGames(res, req);
-
   } else if (req.method === 'POST') {
     await uploadNewGame(req, res);
-    
   } else {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
 
-async function getAllGames(res: NextApiResponse, req: NextApiRequest) {
-
+async function getAllGames(
+  res: NextApiResponse<PaginatedGames | ErrorResponse>,
+  req: NextApiRequest
+) {
   const page = Number(req.query.page) || 1;
 
-  if(page < 0) return res.status(400).json({ error: 'Invalid page number' })
+  if (page < 0) return res.status(400).json({ error: 'Invalid page number' });
 
   try {
     const games: Game[] = await prisma.game.findMany({
@@ -36,10 +44,12 @@ async function getAllGames(res: NextApiResponse, req: NextApiRequest) {
       take: GAMES_PER_PAGE,
     });
 
-    const paginatedGames = {
+    const paginatedGames: PaginatedGames = {
       page: page,
       games: games,
-    }
+    };
+
+
     return res.status(200).json(paginatedGames);
   } catch (error) {
     res.status(500).send({ error: 'Internal Server Error' });
@@ -54,7 +64,7 @@ async function uploadNewGame(req: NextApiRequest, res: NextApiResponse) {
   try {
     const game = await prisma.game.create({
       data: {
-        contractAddress: gameData.contractAddress,
+        contract_address: gameData.contractAddress,
         game_name: gameData.gameName,
         description: gameData.description,
         image: gameData.image,
@@ -65,11 +75,10 @@ async function uploadNewGame(req: NextApiRequest, res: NextApiResponse) {
       },
       include: { categories: true },
     });
-    return res.status(200).json([{ message: 'Game uploaded' }, { game: game }]);
+
+    return res.status(201).json([{ message: 'Game uploaded' }, { game: game }]);
   } catch (error) {
-    res.status(500).send({ error: 'Internal Server Error' });
     log.error(error);
+    res.status(500).send({ error: 'Internal Server Error' });
   }
 }
-
-

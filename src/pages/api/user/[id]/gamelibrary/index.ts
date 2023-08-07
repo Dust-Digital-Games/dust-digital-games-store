@@ -25,7 +25,7 @@ const getAllContractsFromPublicWalletAddress = async (publicWalletAddress: strin
 const matchContractsToGamesInDatabase = async (contracts: string[]) => {
   const games = await prisma.game.findMany({
     where: {
-      contractAddress: {
+      contract_address: {
         in: contracts,
       },
     },
